@@ -1,0 +1,43 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+        <slot />
+	</body>
+</html>
+
+<style is:global>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 65%;
+    }
+
+    html {
+        font-family: "M PLUS 1 Code", monospace;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    :root {
+        --black-main: #141414;
+        --white-main: #D8D8D8;
+        --grey-main: grey;
+
+        --black-secondary: #1c1c1c;
+    }
+
+    span {
+        font-size: 1.3rem;
+    }
+</style>

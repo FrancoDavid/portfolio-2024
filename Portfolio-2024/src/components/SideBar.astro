@@ -1,0 +1,73 @@
+---
+import Button from "./Button.astro"
+---
+<side-bar>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img id="close" src="/imgs/close.svg" alt="Cerrar"/>
+        </div>
+        <div class="sidebar-body">
+            <p>About</p>
+            <p>Projects</p>
+            <p>Skills</p>
+            <p>Expirence</p>
+            <p>Contact</p>
+            <Button label="Resume"></Button>
+        </div>
+    </aside>
+</side-bar>
+
+
+
+<style>
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: -50%;
+        width: 50%;
+        height: 100vh;
+        background-color: var(--black-secondary);
+        color: white;
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: end;
+
+        padding: 16px 8px;
+
+        cursor: pointer;
+    }
+
+    .sidebar-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        font-size: 2rem;
+    }
+</style>
+
+
+<script>
+    class SideBar extends HTMLElement {
+        constructor() {
+            super();
+            this.handlerClose();
+        }
+
+        handlerClose() {
+            const closeElement = this.querySelector('#close') as HTMLImageElement;
+            const sideBar = this.querySelector('#sidebar') as HTMLElement;
+
+            closeElement?.addEventListener('click', () => {
+                sideBar.style.right = "-50%";
+            });
+        }
+    }
+
+    customElements.define('side-bar', SideBar);
+</script>

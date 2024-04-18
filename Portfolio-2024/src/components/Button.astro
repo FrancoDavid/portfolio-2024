@@ -1,0 +1,28 @@
+---
+interface Props {
+    label: string;
+}
+
+const {label} = Astro.props
+---
+
+<button>{label}</button>
+
+<style>
+    button {
+        background-color: transparent;
+        padding: 12px 16px;
+        border: 1px solid white;
+        color: white;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        font-family: "M PLUS 1 Code", monospace;
+        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    }
+
+    button:hover {
+        outline: none;
+        box-shadow: 3px 3px 0 0 white;
+        transform: translate(-4px, -4px);
+    }
+</style>

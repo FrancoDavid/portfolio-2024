@@ -1,0 +1,96 @@
+---
+import Button from "./Button.astro"
+import SideBar from "./SideBar.astro";
+---
+
+<nav-main>
+    <nav>
+        <section>
+            <img src="/imgs/logo_size_invert.jpg" alt="DevDark" width="100px" height="100px"/>
+        </section>
+        <section id="section-nav">
+            <span>About</span>
+            <span>Projects</span>
+            <span>Skills</span>
+            <span>Expirence</span>
+            <span>Contact</span>
+            <Button label="Resume"></Button>
+        </section>
+        <section id="section-nav-hidden">
+            <img id="img-nav-hidden" src="/imgs/menu.svg" alt="Menù" width="40px" height="48px"/>
+        </section>
+    </nav>
+    
+    <SideBar></SideBar>
+</nav-main>
+
+<style>
+    #section-nav-hidden {
+        display: none;
+        margin: 25px 20px;
+        cursor: pointer;
+    }
+
+    #section-nav button {
+        margin-left: 20px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+
+        background-color: var(--black-main);
+
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    nav section:nth-child(2) {
+        color: var(--white-main);
+        padding: 25px 20px;
+    }
+
+    nav section:nth-child(2) span {
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    nav section:nth-child(2) span:hover {
+        color: var(--grey-main);
+    }
+
+    @media (max-width: 768px) {
+        #section-nav-hidden {
+            display: block;
+        }
+
+        #section-nav {
+            display: none;
+        }
+    }
+
+</style>
+
+<script>
+    class NavMain extends HTMLElement {
+        constructor() {
+            super();
+            this.handlerSideBar();
+        }
+
+        handlerSideBar() {
+            const imageNav = this.querySelector('#img-nav-hidden') as HTMLImageElement;
+            const sideBar = this.querySelector('#sidebar') as HTMLElement;
+
+            imageNav?.addEventListener('click', () => {
+                if (sideBar.style.right === "" || sideBar.style.right === "-50%") {
+                    sideBar.style.right = "0%";
+                } 
+            });
+        }
+    }
+
+    customElements.define('nav-main', NavMain);
+</script>
