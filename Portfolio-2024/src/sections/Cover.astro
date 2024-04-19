@@ -1,0 +1,151 @@
+<section>
+    <div class="header">
+        <div>
+            <h1>Hola, soy</h1>
+            <h2>Franco David</h2>
+            <h3>Ingeníero en informática</h3>
+            <p>Soy un apasionado desarrollador de software <br>
+                con una sólida experiencia en 
+                tecnologías modernas. <br>
+                Empedernido a la hora de  enfrentarme <br>
+                a nuevos desafíos y aprender constantemente.</p>
+        </div>
+        <img src="/imgs/avatar.jpeg" alt="Avatar" width="160px" height="160px" />
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: var(--black-main);
+        margin-top: 100px;
+        color: white;
+
+        padding: 100px 150px;
+
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    .header {
+        display: flex;
+        justify-content:space-evenly;
+        margin-top: 50px;
+    }
+
+    .header h1 {
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--grey-main);
+    }
+
+    .header h2 {
+        font-size: 8rem;
+        font-weight: 600;
+        color: var(--white-main);
+    }
+
+    .header h3 {
+        font-size: 6.5rem;
+        font-weight: 500;
+        color: var(--grey-secondary);
+    }
+
+    .header img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .header p {
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--grey-main);
+        margin: 10px 0;
+        line-height: 30px;
+    }
+
+    @media (max-width: 1200px) {
+        section {
+            padding: 90px 100px;
+        }
+
+        .header h2 {
+            font-size: 7rem;
+        }
+
+        .header h3 {
+            font-size: 4.5rem;
+        }
+
+        .header img {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        section {
+            padding: 70px 70px;
+        }
+
+        .header h2 {
+            font-size: 5rem;
+        }
+
+        .header h3 {
+            font-size: 4rem;
+        }
+
+        .header img {
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            padding: 40px 40px;
+        }
+
+        .header img {
+            width: 120px;
+            height: 120px;
+
+            margin-top: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content:center;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 20px
+
+            padding: 16px;
+            margin-top: 50px;
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            line-height: 23px;
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        section {
+            padding: 20px 20px;
+        }
+
+
+        .header h2 {
+            font-size: 4rem;
+        }
+
+        .header h3 {
+            font-size: 3rem;
+        }
+
+    }
+</style>
