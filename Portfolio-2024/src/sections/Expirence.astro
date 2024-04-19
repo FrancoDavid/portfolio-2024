@@ -1,29 +1,54 @@
 ---
 import TabNav from "../components/TabNav.astro";
 
-
-
-const TABS_YEARS = ['2024', '2023'];
+const TABS_YEARS = ["2024", "2023", "2022", "2019", "2018"].reverse();
 const TABS_CONTENTS: Array<{
-        title: string;
-        subtitle: string;
-        paragraphs: string[];
-        year: string
-    }> = [
-        {
-            title: 'Head Tech - OrganizaMe',
-            subtitle: 'Viña del Mar, 2018-2024',
-            paragraphs: [`Desarrollador especializado en el enfoque del lado del front y del backend, así como en la administración de servidores. Responsable de la planificación del desarrollo o sprints, desarrollo de interfaces de usuarios y funcionalidades del sistema, mantenimiento y escalabilidad del sistema, resolución de tickets, análisis y diseño de arquitectura tanto del front-end como del backend, integración y despliegue continuo, automatización de tareas e implementación de testing E2E. Además, comprometido con la implementación y gestión eficiente de los servidores para garantizar un rendimiento óptimo y una alta disponibilidad del sistema.`],
-            year: "2024"
-        },
-        {
-            title: '',
-            subtitle: '',
-            paragraphs: [''],
-            year: "2023"
-        }
-    ];
-
+    title: string;
+    subtitle: string;
+    paragraphs: string[];
+    key: string;
+}> = [
+    {
+        title: "Head Tech - OrganizaMe",
+        subtitle: "Viña del Mar, 2018-2024",
+        paragraphs: [
+            `Desarrollador especializado en el enfoque del lado del front y del backend, así como en la administración de servidores. Responsable de la planificación del desarrollo o sprints, desarrollo de interfaces de usuarios y funcionalidades del sistema, mantenimiento y escalabilidad del sistema, resolución de tickets, análisis y diseño de arquitectura tanto del front-end como del backend, integración y despliegue continuo, automatización de tareas e implementación de testing E2E. Además, comprometido con la implementación y gestión eficiente de los servidores para garantizar un rendimiento óptimo y una alta disponibilidad del sistema.`,
+        ],
+        key: "2024",
+    },
+    {
+        title: "Desarrollador Full-stack - BanChile",
+        subtitle: "Santiago, 2022 – 2023",
+        paragraphs: [
+            "Desarrollador full-stack encargado del Desarrollo de implementaciones y servicios para Liferay en Java SE y desarrollo de interfaces de usuario con Angularjs para el Proyecto de actualización de la plataforma web de Banchile inversiones.",
+        ],
+        key: "2023",
+    },
+    {
+        title: "Desarrollador Front-end - 2X3",
+        subtitle: "Santiago, 2021 – 2022",
+        paragraphs: [
+            "Encargado del desarrollo y diseño de nuevas funcionalidades y soluciones del lado de Front-end. Diseño y desarrollo de interfaces de usuario, escalamiento y refactorización del proyecto, integrar nuevas funcionalidades o dar soluciones a los nuevos problemas.",
+        ],
+        key: "2022",
+    },
+    {
+        title: "Desarrollador Back-end - Sigesi",
+        subtitle: "Montevideo, 2018",
+        paragraphs: [
+            "Encargado del desarrollo y mantenimiento del sistema habitacional del lado del Back-end.Resolución de problemas, mantención y refactorización del proyecto, integración de nuevas soluciones incluyendo la exposición de nuevos procesos de mejora.",
+        ],
+        key: "2019",
+    },
+    {
+        title: "Desarrollador Full-Stack - E-brain",
+        subtitle: "Viña del Mar, 2018",
+        paragraphs: [
+            "Encargado del Desarrollo y mantención de sistemas con stack LAMP. Tareas: Desarrollo y diseño de interfaces de usuarios, mantención y refactorización del sistema, resolución de tickets, mantenimiento y escalabilidad de las bases de datos.",
+        ],
+        key: "2018",
+    },
+];
 ---
 
 <section>
@@ -33,10 +58,7 @@ const TABS_CONTENTS: Array<{
     </div>
 
     <div class="expirence-body">
-        <TabNav
-            titles={TABS_YEARS}
-            contents={TABS_CONTENTS}>
-        </TabNav>
+        <TabNav titles={TABS_YEARS} contents={TABS_CONTENTS} />
     </div>
 </section>
 
@@ -56,7 +78,7 @@ const TABS_CONTENTS: Array<{
         justify-content: flex-start;
 
         padding: 20px 50px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     .expirence-title h2 {
@@ -70,5 +92,23 @@ const TABS_CONTENTS: Array<{
     .expirence-body {
         padding: 20px 100px;
     }
-    
+
+    @media (max-width: 768px) {
+        section {
+            padding: 50px 10px;
+        }
+        .expirence-title {
+            margin-bottom: 10px;
+        }
+
+        .expirence-body {
+            padding: 10px 26px;            
+        }
+    }
+
+    @media (max-width: 576px) {
+        .expirence-body {
+            padding: 10px 0;            
+        }
+    }
 </style>

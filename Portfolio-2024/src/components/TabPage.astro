@@ -4,23 +4,19 @@ interface Props {
             title: string;
             subtitle: string;
             paragraphs: string[];
+            key: string;
     };
 }
 
 const { content } = Astro.props;
-
-console.log(content);
-
 ---
 
 
-<div id="2024" class="expirence-tab--content">
+<div id={content.key} class="expirence-tab--content">
     <div class="expirence-tab--container">
         <aside>
             <h3>{content.title}</h3>
             <h4>{content.subtitle}</h4>
-    
-            <div>
                 <ul>
                     <li>
                         <p>
@@ -28,14 +24,12 @@ console.log(content);
                         </p>
                     </li>
                 </ul>
-            </div>
         </aside>
     </div>
 </div>
 
 <style>
     .expirence-tab--content {
-        /* padding: 20px 200px; */
         display: none;
     }
 

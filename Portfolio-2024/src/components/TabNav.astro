@@ -5,33 +5,59 @@ import TabPage from "./TabPage.astro";
 
 interface Props {
     titles: Array<string>;
-    contents: Array<{
-            title: string;
-            subtitle: string;
-            paragraphs: string[];
-            year: string;
-    }>
+    contents: Array<{ title: string; subtitle: string; paragraphs: string[]; key: string;}>
 }
 
 const { titles , contents} = Astro.props;
-
-
-console.log(titles, contents);
 ---
 
 <tab-nav>
-    <div class="expirence-tab--header">
-        <!-- HAY QUE HACER UN LOOPPP -->
-       <TabButton label={titles[0]}></TabButton>
-    </div>
 
-    <TabPage content={contents[0]}></TabPage>
+    <div class="expirence-tab--container__main">
+        <div class="expirence-tab--header">
+            <TabButton label={titles[0]}></TabButton>
+            <TabButton label={titles[1]}></TabButton>
+            <TabButton label={titles[2]}></TabButton>
+            <TabButton label={titles[3]}></TabButton>
+            <TabButton label={titles[4]} active={true}></TabButton>
+        </div>
+    
+        <div class="expirence-tab--pages">
+            <TabPage content={contents[0]}></TabPage>
+            <TabPage content={contents[1]}></TabPage>
+            <TabPage content={contents[2]}></TabPage>
+            <TabPage content={contents[3]}></TabPage>
+            <TabPage content={contents[4]}></TabPage>
+        </div>
+    </div>
 </tab-nav>
 
 <style>
+    .expirence-tab--container__main {
+        display: block;
+    }
     .expirence-tab--header {
         display: flex;
         justify-content: center;
+
+        margin-bottom: 40px;
+    }
+    .expirence-tab--pages {
+        padding: 10px 10px;
+    }
+
+    @media (max-width: 576px) {
+        .expirence-tab--header {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .expirence-tab--container__main {
+            display: flex;
+            justify-content: center;
+
+            gap: 10px;
+        }
     }
 </style>
 

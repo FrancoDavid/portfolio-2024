@@ -1,13 +1,13 @@
 ---
 interface Props {
     label: string;
+    active?: boolean;
 }
 
-const {label} = Astro.props;
+const {label, active} = Astro.props;
+
 ---
-
-
-<button class="expirence-tab--btn active">{label}</button>
+<button class={`expirence-tab--btn ${active ? 'active' : ''}`}>{label}</button>
 
 <style>
     .expirence-tab--btn {
@@ -33,5 +33,18 @@ const {label} = Astro.props;
 
     .expirence-tab--btn.active {
         border-top: 3px solid var(--white-main);
+    }
+
+
+    @media (max-width: 576px) {
+        .expirence-tab--btn {
+
+            border-top: 0;
+            border-left: 1px solid var(--white-main);
+        }
+        .expirence-tab--btn.active {
+            border-left: 3px solid var(--white-main);
+            border-top: 0;
+        }
     }
 </style>
