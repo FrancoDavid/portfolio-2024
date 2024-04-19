@@ -1,0 +1,74 @@
+---
+import TabNav from "../components/TabNav.astro";
+
+
+
+const TABS_YEARS = ['2024', '2023'];
+const TABS_CONTENTS: Array<{
+        title: string;
+        subtitle: string;
+        paragraphs: string[];
+        year: string
+    }> = [
+        {
+            title: 'Head Tech - OrganizaMe',
+            subtitle: 'Viña del Mar, 2018-2024',
+            paragraphs: [`Desarrollador especializado en el enfoque del lado del front y del backend, así como en la administración de servidores. Responsable de la planificación del desarrollo o sprints, desarrollo de interfaces de usuarios y funcionalidades del sistema, mantenimiento y escalabilidad del sistema, resolución de tickets, análisis y diseño de arquitectura tanto del front-end como del backend, integración y despliegue continuo, automatización de tareas e implementación de testing E2E. Además, comprometido con la implementación y gestión eficiente de los servidores para garantizar un rendimiento óptimo y una alta disponibilidad del sistema.`],
+            year: "2024"
+        },
+        {
+            title: '',
+            subtitle: '',
+            paragraphs: [''],
+            year: "2023"
+        }
+    ];
+
+---
+
+<section>
+    <div class="expirence-title">
+        <h2>Experiencia</h2>
+        <hr />
+    </div>
+
+    <div class="expirence-body">
+        <TabNav
+            titles={TABS_YEARS}
+            contents={TABS_CONTENTS}>
+        </TabNav>
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: var(--black-cube);
+        color: white;
+
+        min-height: 100vh;
+        height: 100%;
+
+        padding: 100px 150px;
+    }
+
+    .expirence-title {
+        display: flex;
+        justify-content: flex-start;
+
+        padding: 20px 50px;
+        margin-bottom: 50px;
+    }
+
+    .expirence-title h2 {
+        font-weight: 300;
+        font-size: 3.2rem;
+        color: var(--white-main);
+        text-decoration: underline;
+        margin-right: 10px;
+    }
+
+    .expirence-body {
+        padding: 20px 100px;
+    }
+    
+</style>

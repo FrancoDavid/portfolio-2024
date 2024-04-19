@@ -1,0 +1,98 @@
+---
+import TabButton from "./TabButton.astro";
+import TabPage from "./TabPage.astro";
+
+
+interface Props {
+    titles: Array<string>;
+    contents: Array<{
+            title: string;
+            subtitle: string;
+            paragraphs: string[];
+            year: string;
+    }>
+}
+
+const { titles , contents} = Astro.props;
+
+
+console.log(titles, contents);
+---
+
+<tab-nav>
+    <div class="expirence-tab--header">
+        <!-- HAY QUE HACER UN LOOPPP -->
+       <TabButton label={titles[0]}></TabButton>
+    </div>
+
+    <TabPage content={contents[0]}></TabPage>
+</tab-nav>
+
+<style>
+    .expirence-tab--header {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+
+
+<script>
+    class TabNav extends HTMLElement {
+
+        tabs: Array<HTMLButtonElement>;
+        contents: Array<HTMLDivElement>;
+
+        constructor() {
+            super();
+            this.tabs = Array.from(this.querySelectorAll(".expirence-tab--btn")) as Array<HTMLButtonElement>;
+            this.contents = Array.from(this.querySelectorAll(".expirence-tab--content")) as Array<HTMLDivElement>;
+            
+            this.onInit();
+        }
+        
+        onInit() {
+            this.setTab();
+            this.handlerClick();
+        }
+
+        setTab() {
+            this.tabs.forEach(tab => {
+                if (tab.classList.contains("active")) {
+                    this.showContents(tab.textContent);
+                }
+            })
+        }
+
+        handlerClick() {
+            this.tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    this.activatedTab(tab);
+                    this.showContents(tab.textContent);
+                });
+            });
+        }
+
+        activatedTab(tab: HTMLButtonElement) {
+
+            this.tabs.forEach((tab: HTMLButtonElement) => {
+                tab.classList.remove("active");
+            });
+
+            tab.classList.add("active");
+        }
+
+        showContents(id: string | null) {
+
+            this.contents.forEach((content) => {
+                content.style.display = "none";
+                
+                if (content.id === id) {
+                    content.style.display = "block";
+                }
+            });
+        }
+    }
+
+    customElements.define("tab-nav", TabNav);
+</script>

@@ -1,0 +1,37 @@
+---
+interface Props {
+    label: string;
+}
+
+const {label} = Astro.props;
+---
+
+
+<button class="expirence-tab--btn active">{label}</button>
+
+<style>
+    .expirence-tab--btn {
+        padding: 10px 20px;
+        background-color: transparent;
+        color: var(--gray-main);
+        font-size: 1.3rem;
+
+        border-top: 1px solid var(--white-main);
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+
+        font-family: "M PLUS 1 Code";
+
+        cursor: pointer;
+    }
+
+    .expirence-tab--btn:hover {
+        color: var(--grey-secondary);
+        background-color: var(--black-light);
+    }
+
+    .expirence-tab--btn.active {
+        border-top: 3px solid var(--white-main);
+    }
+</style>
