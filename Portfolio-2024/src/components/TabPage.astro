@@ -9,20 +9,23 @@ interface Props {
 }
 
 const { content } = Astro.props;
+
+
+
 ---
-
-
 <div id={content.key} class="expirence-tab--content">
     <div class="expirence-tab--container">
         <aside>
             <h3>{content.title}</h3>
             <h4>{content.subtitle}</h4>
                 <ul>
-                    <li>
-                        <p>
-                            {content.paragraphs[0]}
-                        </p>
-                    </li>
+                    {
+                        content.paragraphs.map((paragraph, index) => (
+                            <li id={index.toString()}>
+                                <p>{paragraph}</p>
+                            </li>
+                        ))
+                    }
                 </ul>
         </aside>
     </div>
@@ -50,6 +53,25 @@ const { content } = Astro.props;
         font-size: 1.6rem;
         font-weight: 300;
         color: var(--grey-light);
+        margin-bottom: 10px;
+    }
+    .expirence-tab--content ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+    
+    .expirence-tab--content ul li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+        font-size: 2.3rem;
+    }
+    .expirence-tab--content ul li::before {
+        content: "▹";
+        position: absolute;
+        left: 0px;
+        color: var(--white-main);
     }
 
     .expirence-tab--content p {
