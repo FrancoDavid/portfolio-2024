@@ -1,0 +1,134 @@
+---
+import Card from "../components/Card.astro";
+
+const PROJECTS = [
+    {
+        title: "Marketplace API",
+        description: "",
+        tags: ["Java", "Spring boot", "MySQL"],
+        url: "https://github.com/FrancoDavid/marketplace-spring"
+    },
+    {
+        title: "To-Do App",
+        description: "",
+        tags: ["React JS", "React-context", "HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/todo-react"
+    },
+    {
+        title: "Juego Piedra papel y tijera",
+        description: "",
+        tags: ["Angular","HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/game-rps-angular"
+    },
+    {
+        title: "Generador de contraseñas",
+        description: "",
+        tags: ["Angular","HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/generate-password-angular"
+    },
+    {
+        title: "Calculador de edad",
+        description: "",
+        tags: ["React JS","HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/calculator-age-reactjs"
+    },
+    {
+        title: "Pizarra",
+        description: "",
+        tags: ["Javascript","HTML", "CSS", "Rx JS"],
+        url: "https://github.com/FrancoDavid/canvas-rxjs"
+    },
+    {
+        title: "Juego Wordle",
+        description: "",
+        tags: ["Javascript","HTML", "CSS", "Rx JS"],
+        url: "https://github.com/FrancoDavid/wordle-rxjs"
+    },
+    {
+        title: "Administrador de Mensaje Api",
+        description: "",
+        tags: ["Java", "MySql"],
+        url: "https://github.com/FrancoDavid/message-crud-java-se"
+    },
+    {
+        title: "Formulario de tarjeta de credito interactivo",
+        description: "",
+        tags: ["Angular","HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/interactive-card-details-form"
+    },
+    {
+        title: "Control de plagas API",
+        description: "",
+        tags: ["NodeJS", "Express JS", "Mongo DB"],
+        url: "https://github.com/FrancoDavid/api-rest-admin-crop"
+    },
+    {
+        title: "Indicadores Financieros",
+        description: "",
+        tags: ["Angular","HTML", "CSS"],
+        url: "https://github.com/FrancoDavid/angular-list-financial-indicators"
+    },
+]
+
+---
+
+<section>
+    <div class="project-title">
+        <h2>Proyectos</h2>
+        <hr />
+    </div>
+
+    <div class="project-body">
+        
+        <div class="project-container">
+            {
+                PROJECTS.map((project, index) => (
+                    <Card key={index.toString()} project={project}></Card>
+                ))
+            }
+        </div>
+
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: var(--black-tertiary);
+        color: white;
+
+        min-height: 100vh;
+        height: 100%;
+
+        padding: 100px 150px;
+    }
+
+    .project-title {
+        display: flex;
+        justify-content: flex-end;
+
+        padding: 20px 50px;
+
+        margin-bottom: 20px;
+    }
+
+    .project-title h2 {
+        font-weight: 300;
+        font-size: 3.2rem;
+        color: var(--white-main);
+        text-decoration: underline; 
+        margin-right: 10px;
+    }
+
+    .project-body {
+        padding: 20px 100px;
+    }
+
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px;
+    }
+
+    
+
+</style>

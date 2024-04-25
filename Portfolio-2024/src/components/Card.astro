@@ -1,0 +1,92 @@
+---
+interface Props {
+    key: string;
+    project: {
+        title: string,
+        description: string,
+        tags: Array<string>,
+        url: string
+    }
+}
+
+const {key, project} = Astro.props;
+
+---
+
+
+<div class="card-item" id={key}>
+    <div class="card-item--header">
+        <img src="/imgs/folder.svg" alt="Carpeta">
+        <a href={project.url} target="_blank">
+            <img src="/imgs/github.svg" alt="Github">
+        </a>
+    </div>
+    <div class="card-item--body">
+        <h2>{project.title}</h2>
+        <p>{project.description}</p>
+    </div>
+
+    <div class="card-item--footer">
+        {
+            project.tags.map((tag, index) => (
+                <p id={index.toString()}>{tag}</p>
+            ))
+        }
+    </div>
+</div>
+<style>
+    .card-item {
+        flex: 1 0 30%;
+        background-color: var(--black-light);
+
+        height: 320px;
+        width: 300px;
+
+        max-width: 300px;
+        max-height: 320px;
+
+        border-radius: 5px;
+
+        padding: 20px 20px;
+        margin: 15px;
+    }
+
+    .card-item--header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-item--header img {
+        cursor: pointer;
+    }
+
+    .card-item--body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: left;
+
+        margin-bottom: 30px;
+    }
+
+    .card-item--body h2 {
+        font-size: 2.2rem;
+        margin-top: 40px;
+    }
+
+    .card-item--body p {
+        font-size: 1.7rem;
+        color: var(--grey-main);
+    }
+
+    .card-item--footer {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .card-item--footer p {
+        font-size: 1.3rem;
+        color: var(--grey-main);
+        font-weight: lighter;
+    }
+</style>
