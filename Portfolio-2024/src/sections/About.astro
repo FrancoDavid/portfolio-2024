@@ -1,5 +1,5 @@
 <section>
-    <div class="about-title">
+    <!-- <div class="about-title">
         <h2>Sobre mi</h2>
         <hr>
     </div>
@@ -27,9 +27,126 @@
         <div>
             <img src="/imgs/profile.jpeg" alt="Profile" />
         </div>
+    </div> -->
+    <div class="about-title">
+        <h2>Sobre mi</h2>
+        <hr />
+    </div>
+    <div class="about-content">
+        <div class="about-card about-content__expirence">
+            <h3>Experiencia</h3>
+            <div class="about-collapse__container">
+                Desarrollador Front-end - ChileCompra Santiago, 2024-2025
+            </div>
+            <div class="about-collapse__container">
+                Head Tech - OrganizaMe Viña del Mar, 2018-2024
+            </div>
+            <div class="about-collapse__container">
+                Desarrollador Full-stack - BanChile Santiago, 2022-2023
+            </div>
+            <div class="about-collapse__container">
+                Desarrollador Front-end - 2X3 Santiago, 2021-2022
+            </div>
+            <div class="about-collapse__container">
+                Desarrollador Back-end - Sigesi Montevideo, 2018
+            </div>
+            <div class="about-collapse__container">
+                Desarrollador Full-Stack - E-brain Viña del Mar, 2018
+            </div>
+        </div>
+        <div class="about-card about-content__tech">
+            <h3>Habilidades</h3>
+            <div class="about-logo__container-3">
+                <img
+                    src="/imgs/java.svg"
+                    alt="Java-lenguaje de programación"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/logo-javascript.svg"
+                    alt="Javascript-lenguaje de programación"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/typescript.svg"
+                    alt="Typescript-lenguaje de programación"
+                    width="60px"
+                    height="68px"
+                />
+            </div>
+            <div class="about-logo__container-3">
+                <img
+                    src="/imgs/html-1.svg"
+                    alt="HTML-lenguaje de maquetación"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/css-3.svg"
+                    alt="CSS-lenguaje de estilos"
+                    width="60px"
+                    height="68px"
+                />
+            </div>
+            <div class="about-logo__container-3">
+                <img
+                    src="/imgs/spring-3.svg"
+                    alt="Spring-boot-framework de Java"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/angular-icon-1.svg"
+                    alt="Angular-framework de Javascript"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/nodejs-icon.svg"
+                    alt="Nodejs-framework de Javascript"
+                    width="60px"
+                    height="68px"
+                />
+            </div>
+            <div class="about-logo__container-3">
+                <img
+                    src="/imgs/astrojs.svg"
+                    alt="Astrojs-framework de Javascript"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/react-2.svg"
+                    alt="React-framework de Javascript"
+                    width="60px"
+                    height="68px"
+                />
+            </div>
+            <div class="about-logo__container-3">
+                <img
+                    src="/imgs/mysql-logo-pure.svg"
+                    alt="MySQL-base de datos"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/mongodb-icon-1.svg"
+                    alt="MongoDB-base de datos"
+                    width="60px"
+                    height="68px"
+                />
+                <img
+                    src="/imgs/postgresql.svg"
+                    alt="PostgreSQL-base de datos"
+                    width="60px"
+                    height="68px"
+                />
+            </div>
+        </div>
     </div>
 </section>
-
 
 <style>
     section {
@@ -55,50 +172,51 @@
         font-weight: 300;
         font-size: 3.2rem;
         color: var(--white-main);
-        text-decoration: underline; 
+        text-decoration: underline;
         margin-right: 10px;
     }
 
     .about-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 8px;
+    }
+
+    .about-card {
+        background-color: var(--black-secondary);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        text-align: left;
+    }
+
+    .about-collapse__container {
+        border: 1px solid var(--black-secondary);
+        background-color: var(--black-tertiary);
+        padding: 12px;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    .about-card p {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    .about-card h3 {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+
+    .about-logo__container-3 {
         display: flex;
-        justify-content: space-evenly;
-
-        gap: 80px;
-    }
-
-    .about-content p {
-        font-size: 2rem;
-        font-weight: 200;
-        line-height: 30px;
-        text-align: justify;
-        margin-bottom: 14px;
-        padding: 20px 40px;
-    }
-
-    .about-content img {
-        width: 400px;
-        height: 400px;
-
-        border-radius: 3%;
+        justify-content: space-around;
+        margin: 16px 0
     }
 
     @media (max-width: 1200px) {
         section {
             padding: 90px 120px;
-        }
-
-        .about-content p {
-            padding: 20px 30px;
-            margin-bottom: 10px;
-        }
-
-        .about-content img {
-            width: 350px;
-            height: 350px;
-        }
-
-        .about-content {
-            gap: 50px;
         }
     }
 
@@ -106,28 +224,9 @@
         section {
             padding: 90px 90px;
         }
-
-        .about-content p {
-            padding: 10px 20px;
-        }
-
-        .about-content img {
-            width: 200px;
-            height: 200px;
-        }
-
-        .about-content {
-            gap: 30px;
-        }
     }
 
     @media (max-width: 768px) {
-        .about-content {
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
         section {
             padding: 60px 50px;
         }
@@ -138,5 +237,4 @@
             padding: 40px 20px;
         }
     }
-
 </style>
