@@ -1,25 +1,27 @@
 ---
 import Button from "../shared/Button.astro"
 import SideBar from "../shared/SideBar.astro";
+
+import { CV_DICTIONARY } from "../../config"
 ---
 
-<nav-main>
+<nav-main data-cv-route={CV_DICTIONARY.ROUTE} data-cv-file={CV_DICTIONARY.FILE}>
     <nav>
         <section>
-            <img src="/imgs/logo_size_invert.jpg" alt="DevDark" width="100px" height="100px"/>
+            <a href="#cover"><img id="logo" src="/imgs/logo_size_invert.jpg" alt="DevDark" width="100px" height="100px"/></a>
         </section>
         <section id="section-nav">
-            <span>Sobre mi</span>
-            <span>Portafolio</span>
-            <span>Contacto</span>
-            <Button label="Descarga CV"></Button>
+            <a href="#about">Sobre mi</a>
+            <a href="#portfolio">Portafolio</a>
+            <a href="#contact">Contacto</a>
+           <Button key="download-cv">Descargar CV</Button>
         </section>
         <section id="section-nav-hidden">
             <img id="img-nav-hidden" src="/imgs/menu.svg" alt="Menù" width="40px" height="48px"/>
         </section>
     </nav>
     
-    <SideBar></SideBar>
+    <!-- <SideBar></SideBar> -->
 </nav-main>
 
 <style>
@@ -31,6 +33,17 @@ import SideBar from "../shared/SideBar.astro";
 
     #section-nav button {
         margin-left: 20px;
+    }
+
+    #section-nav a {
+        color: var(--white-main);
+        padding: 25px 20px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+    #section-nav a:hover {
+        color: var(--grey-main);
     }
 
     nav {
@@ -46,19 +59,13 @@ import SideBar from "../shared/SideBar.astro";
     }
 
     nav section:nth-child(2) {
-        color: var(--white-main);
         padding: 25px 20px;
     }
 
-    nav section:nth-child(2) span {
+    nav section:nth-child(2) a {
         padding: 8px;
-        cursor: pointer;
     }
-
-    nav section:nth-child(2) span:hover {
-        color: var(--grey-main);
     }
-
     @media (max-width: 768px) {
         #section-nav-hidden {
             display: block;
@@ -75,7 +82,9 @@ import SideBar from "../shared/SideBar.astro";
     class NavMain extends HTMLElement {
         constructor() {
             super();
-            this.handlerSideBar();
+            // this.handlerSideBar();
+            this.handleScrollToSection()
+            this.handleDownloadCV();
         }
 
         handlerSideBar() {
@@ -86,6 +95,35 @@ import SideBar from "../shared/SideBar.astro";
                 if (sideBar.style.right === "" || sideBar.style.right === "-50%") {
                     sideBar.style.right = "0%";
                 } 
+            });
+        }
+
+        handleScrollToSection() {
+            this.querySelectorAll("nav a").forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const target = document.querySelector(link.getAttribute("href") || '');
+                    target?.scrollIntoView({ behavior: "smooth" });
+                });
+            });
+        }
+
+        handleDownloadCV() {
+            const downloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
+            const routeCV = this.getAttribute("data-cv-route") || '';
+            const fileCV = this.getAttribute("data-cv-file") || '';
+
+            downloadCV?.addEventListener("click", () => {
+                const link = document.createElement("a");
+
+                link.href = routeCV;
+                link.download = fileCV;
+                
+                document.body.appendChild(link);
+                
+                link.click();
+                
+                document.body.removeChild(link);
             });
         }
     }

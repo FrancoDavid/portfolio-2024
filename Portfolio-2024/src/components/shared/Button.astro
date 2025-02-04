@@ -1,12 +1,12 @@
 ---
 interface Props {
-    label: string;
+    key: string
 }
 
-const {label} = Astro.props
+const {key} = Astro.props
 ---
 
-<button>{label}</button>
+<button id={key}><slot /></button>
 
 <style>
     button {
