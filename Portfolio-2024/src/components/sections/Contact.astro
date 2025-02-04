@@ -1,0 +1,125 @@
+---
+import Button from "../shared/Button.astro"
+
+---
+
+<section id="contacto" class="contacto">
+    <div class="contacto-contenedor">
+        <h2 class="contacto-titulo">Contacto</h2>
+        <p class="contacto-descripcion">
+            ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
+            responderé lo antes posible.
+        </p>
+        <form class="contacto-formulario">
+            <div class="formulario-grupo">
+                <label for="nombre" class="formulario-etiqueta">Nombre</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    class="formulario-input"
+                    placeholder="Tu nombre"
+                    required
+                />
+            </div>
+            <div class="formulario-grupo">
+                <label for="email" class="formulario-etiqueta"
+                    >Correo electrónico</label
+                >
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="formulario-input"
+                    placeholder="tucorreo@ejemplo.com"
+                    required
+                />
+            </div>
+            <div class="formulario-grupo">
+                <label for="mensaje" class="formulario-etiqueta">Mensaje</label>
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    class="formulario-textarea"
+                    placeholder="Escribe tu mensaje aquí..."
+                    rows="5"
+                    required></textarea>
+            </div>
+            <Button label="Enviar mensaje"></Button>
+        </form>
+    </div>
+</section>
+<style>
+    .contacto {
+        background-color: var(--black-secondary);
+        color: var(--white-main);
+        padding: 4rem 1rem 13rem;
+    }
+
+    .contacto-contenedor {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .contacto-titulo {
+        font-weight: 300;
+        font-size: 3.2rem;
+        color: var(--white-main);
+        text-decoration: underline;
+        margin-right: 10px;
+        padding: 20px 50px;
+        margin-bottom: 10px;
+    }
+
+    .contacto-descripcion {
+        font-size: 1.6rem;
+        color: var(--white-main);
+        margin-bottom: 2rem;
+    }
+
+    /* Estilos del formulario */
+    .contacto-formulario {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .formulario-grupo {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .formulario-etiqueta {
+        font-size: 1.4rem;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+    }
+
+    .formulario-input,
+    .formulario-textarea {
+        padding: 0.8rem;
+        border: 1px solid #333333; /* Borde gris oscuro */
+        border-radius: 4px;
+        background-color: #262626; /* Fondo gris oscuro */
+        color: #ffffff;
+        font-size: 1.3rem;
+        transition: border-color 0.3s ease;
+    }
+
+    .formulario-input::placeholder,
+    .formulario-textarea::placeholder {
+        color: #666666; /* Placeholder gris */
+    }
+
+    .formulario-input:focus,
+    .formulario-textarea:focus {
+        border-color: #ffffff; /* Borde blanco al enfocar */
+        outline: none;
+    }
+
+    .formulario-textarea {
+        resize: vertical; /* Permite redimensionar verticalmente */
+    }
+</style>
