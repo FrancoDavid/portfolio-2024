@@ -4,7 +4,29 @@
         <hr />
     </div>
     <div class="about-content">
-        <div class="about-card about-content__expirence">
+        <aside class="expirence">
+            <h3>Experiencia</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header"> button </button>
+                    <div class="accordion-content">
+                        <ul><li>
+                            pico en el ojo</li></ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <aside class="skills">
+            <h3>Habilidades</h3>
+            <div class="grid">
+                <div class="skill">
+                    <img src="" alt="" />
+                    <span>logo</span>
+                </div>
+            </div>
+        </aside>
+        <!-- <div class="about-card about-content__expirence">
             <h3>Experiencia</h3>
             <div class="about-collapse__container">
                 Desarrollador Front-end - ChileCompra Santiago, 2024-2025
@@ -115,7 +137,7 @@
                     height="68px"
                 />
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -143,15 +165,19 @@
         font-weight: 300;
         font-size: 3.2rem;
         color: var(--white-main);
-        text-decoration: underline;
         margin-right: 10px;
     }
 
     .about-content {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        gap: 8px;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .about-content h3 {
+        font-size: 2.5rem;
+        font-weight: 400;
+
+        margin-bottom: 16px;
     }
 
     .about-card {
@@ -182,7 +208,80 @@
     .about-logo__container-3 {
         display: flex;
         justify-content: space-around;
-        margin: 16px 0
+        margin: 16px 0;
+    }
+
+    /* ACCORDION */
+    .accordion-item {
+        border-bottom: 1px solid #333;
+        overflow: hidden;
+    }
+
+    .accordion-header {
+        width: 100%;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2.2rem;
+        text-align: left;
+        padding: 15px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-item.active .accordion-content {
+        max-height: 200px;
+    }
+
+    .accordion-content ul {
+        padding: 10px 20px;
+        text-align: left;
+    }
+
+    .expirence {
+        margin-bottom: 60px;
+    }
+
+    /* SKILLS */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .skill {
+        background: #1e1e1e;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        transition: transform 0.3s;
+    }
+
+    .skill:hover {
+        transform: scale(1.1);
+    }
+
+    .skill img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .skill span {
+        display: block;
+        margin-top: 10px;
+        font-size: 1rem;
+        color: #ccc;
     }
 
     @media (max-width: 1200px) {
@@ -209,3 +308,17 @@
         }
     }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const accordions = document.querySelectorAll(".accordion-item");
+
+        accordions.forEach((item) => {
+            const itemxx = item.querySelector(".accordion-header");
+            if (itemxx) {
+                itemxx.addEventListener("click", function () {
+                    item.classList.toggle("active");
+                });
+            }
+        });
+    });
+</script>
