@@ -1,3 +1,11 @@
+---
+import AccordionUi from "../shared/Accordion.astro";
+import type { IExpirence } from "../../interfaces/expirence";
+
+const response = await fetch("api/expirences");
+const expirences: Array<IExpirence> = await response.json();
+---
+
 <section id="about">
     <div class="about-title">
         <h2>Sobre mi</h2>
@@ -6,15 +14,20 @@
     <div class="about-content">
         <aside class="expirence">
             <h3>Experiencia</h3>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header"> button </button>
-                    <div class="accordion-content">
-                        <ul><li>
-                            pico en el ojo</li></ul>
-                    </div>
-                </div>
-            </div>
+            {
+                expirences.map((expirence) => (
+                    <AccordionUi>
+                        <div class="expirence-content">
+                            <h4>Descripcion</h4>
+                            <ul>
+                                {expirence.descriptions.map((description) => (
+                                    <li>{description}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </AccordionUi>
+                ))
+            }
         </aside>
 
         <aside class="skills">
@@ -211,45 +224,18 @@
         margin: 16px 0;
     }
 
-    /* ACCORDION */
-    .accordion-item {
-        border-bottom: 1px solid #333;
-        overflow: hidden;
-    }
-
-    .accordion-header {
-        width: 100%;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 2.2rem;
-        text-align: left;
-        padding: 15px;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    .accordion-header:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .accordion-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-
-    .accordion-item.active .accordion-content {
-        max-height: 200px;
-    }
-
-    .accordion-content ul {
-        padding: 10px 20px;
-        text-align: left;
-    }
-
     .expirence {
         margin-bottom: 60px;
+    }
+
+    .expirence-content h4 {
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+    .expirence-content ul {
+        padding: 10px 20px;
+        text-align: left;
+        font-size: 1.8rem;
     }
 
     /* SKILLS */
@@ -308,17 +294,3 @@
         }
     }
 </style>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const accordions = document.querySelectorAll(".accordion-item");
-
-        accordions.forEach((item) => {
-            const itemxx = item.querySelector(".accordion-header");
-            if (itemxx) {
-                itemxx.addEventListener("click", function () {
-                    item.classList.toggle("active");
-                });
-            }
-        });
-    });
-</script>
