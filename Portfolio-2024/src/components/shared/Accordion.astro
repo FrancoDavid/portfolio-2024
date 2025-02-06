@@ -1,7 +1,12 @@
+---
+
+const { title } = Astro.props;
+
+---
 <accordion-ui>
     <div class="accordion">
         <div class="accordion-item">
-            <button class="accordion-header"> button </button>
+            <button class="accordion-header">{title}</button>
             <div class="accordion-content">
                 <div class="accordion-slot">
                     <slot></slot>

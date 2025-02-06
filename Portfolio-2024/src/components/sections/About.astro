@@ -20,7 +20,7 @@ const { expirences } = Astro.props as Props;
             <h3>Experiencia</h3>
             {   expirences &&
                 expirences?.map((expirence) => (
-                    <AccordionUi>
+                    <AccordionUi title={expirence?.title}>
                         <div class="expirence-content">
                             <h4>Descripcion</h4>
                             <ul>
