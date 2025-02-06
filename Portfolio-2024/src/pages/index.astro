@@ -9,18 +9,22 @@ import Nav from "../components/sections/Nav.astro";
 import Project from "../components/sections/Project.astro";
 
 import type { IExpirence } from "../interfaces/IExperience"
+import type { IProject } from "../interfaces/IProject"
 
 const apiUrl = import.meta.env.API_URL;
 
-const response = await fetch(`${apiUrl}/api/expirence`);
-const expirences: Array<IExpirence> = await response.json();
+const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
+const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
+
+const projectsResponse = await fetch(`${apiUrl}/api/project`);
+const projectsResult: {front: Array<IProject>, back: Array<IProject>} = await projectsResponse.json();
 ---
 
 <Layout>
 	<Nav></Nav>
 	<Cover></Cover>
-	<About expirences={expirences || []}></About>
-	<Project></Project>
+	<About expirences={expirencesResult || []}></About>
+	<Project projects={projectsResult || []}></Project>
 	<Contact></Contact>
 	<Footer></Footer>
 </Layout>

@@ -1,74 +1,13 @@
 ---
+import type { IProject } from "../../interfaces/IProject";
 import Card from "../shared/Card.astro";
 
-const PROJECTS = [
-    {
-        title: "Marketplace API",
-        description: "",
-        tags: ["Java", "Spring boot", "MySQL"],
-        url: "https://github.com/FrancoDavid/marketplace-spring"
-    },
-    {
-        title: "To-Do App",
-        description: "",
-        tags: ["React JS", "React-context", "HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/todo-react"
-    },
-    {
-        title: "Juego Piedra papel y tijera",
-        description: "",
-        tags: ["Angular","HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/game-rps-angular"
-    },
-    {
-        title: "Generador de contraseñas",
-        description: "",
-        tags: ["Angular","HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/generate-password-angular"
-    },
-    {
-        title: "Calculador de edad",
-        description: "",
-        tags: ["React JS","HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/calculator-age-reactjs"
-    },
-    {
-        title: "Pizarra",
-        description: "",
-        tags: ["Javascript","HTML", "CSS", "Rx JS"],
-        url: "https://github.com/FrancoDavid/canvas-rxjs"
-    },
-    {
-        title: "Juego Wordle",
-        description: "",
-        tags: ["Javascript","HTML", "CSS", "Rx JS"],
-        url: "https://github.com/FrancoDavid/wordle-rxjs"
-    },
-    {
-        title: "Administrador de Mensaje Api",
-        description: "",
-        tags: ["Java", "MySql"],
-        url: "https://github.com/FrancoDavid/message-crud-java-se"
-    },
-    {
-        title: "Formulario de tarjeta de credito interactivo",
-        description: "",
-        tags: ["Angular","HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/interactive-card-details-form"
-    },
-    {
-        title: "Control de plagas API",
-        description: "",
-        tags: ["NodeJS", "Express JS", "Mongo DB"],
-        url: "https://github.com/FrancoDavid/api-rest-admin-crop"
-    },
-    {
-        title: "Indicadores Financieros",
-        description: "",
-        tags: ["Angular","HTML", "CSS"],
-        url: "https://github.com/FrancoDavid/angular-list-financial-indicators"
-    },
-]
+
+interface Props {
+    projects: {front: Array<IProject>, back: Array<IProject>}
+}
+
+const { projects } = Astro.props as Props;
 
 ---
 
@@ -80,14 +19,28 @@ const PROJECTS = [
 
     <div class="project-body">
         
+        <div class="project-container__header">
+            <h3>Front-end</h3>
+        </div>
+
         <div class="project-container">
             {
-                PROJECTS.map((project, index) => (
+                projects && projects?.front.map((project, index) => (
                     <Card key={index.toString()} project={project}></Card>
                 ))
             }
         </div>
 
+        <div class="project-container__header">
+            <h3>Back-end</h3>
+        </div>
+        <div class="project-container">
+            {
+                projects && projects?.back.map((project, index) => (
+                    <Card key={index.toString()} project={project}></Card>
+                ))
+            }
+        </div>
     </div>
 </section>
 
@@ -104,7 +57,7 @@ const PROJECTS = [
 
     .project-title {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
 
         padding: 20px 50px;
 
@@ -115,7 +68,6 @@ const PROJECTS = [
         font-weight: 300;
         font-size: 3.2rem;
         color: var(--white-main);
-        text-decoration: underline; 
         margin-right: 10px;
     }
 
@@ -127,6 +79,19 @@ const PROJECTS = [
         display: flex;
         flex-wrap: wrap;
         margin: 5px;
+    }
+
+    .project-container__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .project-container__header h3 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--white-main);
     }
     
     @media (max-width: 1024px) {
