@@ -1,9 +1,13 @@
 ---
 import AccordionUi from "../shared/Accordion.astro";
-import type { IExpirence } from "../../interfaces/expirence";
+import type { IExpirence } from "../../interfaces/IExperience";
 
-const response = await fetch("api/expirences");
-const expirences: Array<IExpirence> = await response.json();
+interface Props {
+    expirences: Array<IExpirence>
+}
+
+const { expirences } = Astro.props as Props;
+
 ---
 
 <section id="about">
@@ -14,19 +18,23 @@ const expirences: Array<IExpirence> = await response.json();
     <div class="about-content">
         <aside class="expirence">
             <h3>Experiencia</h3>
-            {
-                expirences.map((expirence) => (
+            {   expirences &&
+                expirences?.map((expirence) => (
                     <AccordionUi>
                         <div class="expirence-content">
                             <h4>Descripcion</h4>
                             <ul>
-                                {expirence.descriptions.map((description) => (
+                                {expirence && expirence?.descriptions.map((description) => (
                                     <li>{description}</li>
                                 ))}
                             </ul>
                         </div>
                     </AccordionUi>
                 ))
+            }
+
+            { !expirences &&
+                <p>No hay experiencias</p>
             }
         </aside>
 

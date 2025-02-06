@@ -4,7 +4,7 @@ export async function GET() {
             {
                 title: "Desarrollador Front-end - ChileCompra",
                 subtitle: "Santiago, 2024-2025",
-                paragraphs: [
+                descriptions: [
                     'En mi rol en OrganizaMe, lideré el desarrollo de la interfaz de usuario utilizando tecnologías como Angular 7, HTML5, CSS3 y Bootstrap 4. Trabajé en estrecha colaboración con el equipo de diseño, utilizando herramientas como Adobe XD, para crear interfaces intuitivas y atractivas que mejoraran la experiencia del usuario en nuestras aplicaciones.',
                     'Llevé a cabo el mantenimiento continuo de nuestras aplicaciones, asegurando su funcionamiento estable y sin problemas en todo momento. ',
                     'Lideré el desarrollo de la lógica de negocio utilizando tecnologías como Node.js 16, Express.js 4. Desarrollé algoritmos, procesos y reglas de negocio que aseguraron el funcionamiento eficiente y confiable de nuestras aplicaciones.',
@@ -18,7 +18,7 @@ export async function GET() {
             {
                 title: "Head Tech - OrganizaMe",
                 subtitle: "Viña del Mar, 2018-2024",
-                paragraphs: [
+                descriptions: [
                     'En mi rol en OrganizaMe, lideré el desarrollo de la interfaz de usuario utilizando tecnologías como Angular 7, HTML5, CSS3 y Bootstrap 4. Trabajé en estrecha colaboración con el equipo de diseño, utilizando herramientas como Adobe XD, para crear interfaces intuitivas y atractivas que mejoraran la experiencia del usuario en nuestras aplicaciones.',
                     'Llevé a cabo el mantenimiento continuo de nuestras aplicaciones, asegurando su funcionamiento estable y sin problemas en todo momento. ',
                     'Lideré el desarrollo de la lógica de negocio utilizando tecnologías como Node.js 16, Express.js 4. Desarrollé algoritmos, procesos y reglas de negocio que aseguraron el funcionamiento eficiente y confiable de nuestras aplicaciones.',
@@ -32,7 +32,7 @@ export async function GET() {
             {
                 title: "Desarrollador Full-stack - BanChile",
                 subtitle: "Santiago, 2022 – 2023",
-                paragraphs: [
+                descriptions: [
                     'En mi rol en Banchile, encargado del desarrollo de la interfaz de usuario utilizando tecnologías como AngularJS 1.5, HTML5 y CSS3. Trabajé en estrecha colaboración con el equipo de diseño para crear interfaces intuitivas y atractivas que mejoraran la experiencia del usuario en nuestras aplicaciones.',
                     'Me encargué de implementar la lógica del cliente utilizando Java SE 7 y AngularJS 1.5. Desarrollé componentes y funcionalidades del lado del cliente que interactuaban de manera eficiente con el backend, garantizando una experiencia de usuario fluida y consistente.',
                     'Fui responsable de realizar pruebas rigurosas y depuración utilizando herramientas como Jenkins, Nexus y SonarQube. Garanticé la calidad del código y la estabilidad de las aplicaciones, identificando y corrigiendo errores para ofrecer productos libres de fallos.',
@@ -45,7 +45,7 @@ export async function GET() {
             {
                 title: "Desarrollador Front-end - 2X3",
                 subtitle: "Santiago, 2021 – 2022",
-                paragraphs: [
+                descriptions: [
                     'Durante mi tiempo en 2X3, me encargue del desarrollo de la interfaz de usuario utilizando tecnologías como AngularJS 1.5, HTML5 y Atomic CSS. Trabajé en estrecha colaboración con el equipo de diseño para crear interfaces intuitivas y atractivas que mejoraran la experiencia del usuario.',
                     'Tuve el privilegio de implementar nuevas funcionalidades en nuestras aplicaciones utilizando AngularJS 1.5 y HTML5. ',
                     'Lideré la refactorización del código utilizando AngularJS 1.5, HTML5 y SASS 3.5 para mejorar su estructura y legibilidad.',
@@ -56,7 +56,7 @@ export async function GET() {
             {
                 title: "Desarrollador Back-end - Sigesi",
                 subtitle: "Montevideo, 2018",
-                paragraphs: [
+                descriptions: [
                     'Como parte de mi rol en Sigesi, me encargué de diseñar y desarrollar la interfaz de usuario de nuestras aplicaciones, asegurando una experiencia intuitiva y atractiva para nuestros usuarios. ',
                     'Durante mi tiempo en Sigesi, tuve la responsabilidad de implementar nuevas funcionalidades en nuestras aplicaciones, en respuesta a las necesidades y requisitos de nuestros clientes. ',
                     'Una de mis principales responsabilidades fue desarrollar la lógica de negocio de nuestras aplicaciones, asegurando que cumplieran con los requisitos funcionales y operativos de nuestros clientes. Utilicé lenguajes de programación como PHP para implementar algoritmos, reglas de negocio y procesos de negocio que garantizaran el funcionamiento eficiente y confiable de nuestras soluciones.',
@@ -67,7 +67,7 @@ export async function GET() {
             {
                 title: "Desarrollador Full-Stack - E-brain",
                 subtitle: "Viña del Mar, 2018",
-                paragraphs: [
+                descriptions: [
                     'Especialista en el desarrollo de interfaces de usuario dinámicas y atractivas mediante el uso de JavaScript, jQuery, HTML5 y CSS. Enfocado en la optimización y el rendimiento para garantizar una experiencia web fluida y eficiente.',
                     'Experto en el desarrollo del lado del servidor, utilizando PHP para implementar la lógica de negocio de forma robusta y escalable.',
                     'Responsable de la refactorización y el mantenimiento continuo de plataformas web en entornos productivos. ',

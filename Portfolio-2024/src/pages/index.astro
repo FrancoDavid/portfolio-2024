@@ -7,12 +7,19 @@ import Cover from "../components/sections/Cover.astro";
 import Footer from "../components/sections/Footer.astro";
 import Nav from "../components/sections/Nav.astro";
 import Project from "../components/sections/Project.astro";
+
+import type { IExpirence } from "../interfaces/IExperience"
+
+const apiUrl = import.meta.env.API_URL;
+
+const response = await fetch(`${apiUrl}/api/expirence`);
+const expirences: Array<IExpirence> = await response.json();
 ---
 
 <Layout>
 	<Nav></Nav>
 	<Cover></Cover>
-	<About></About>
+	<About expirences={expirences || []}></About>
 	<Project></Project>
 	<Contact></Contact>
 	<Footer></Footer>
