@@ -3,11 +3,10 @@ import AccordionUi from "../shared/Accordion.astro";
 import type { IExpirence } from "../../interfaces/IExperience";
 
 interface Props {
-    expirences: Array<IExpirence>
+    expirences: Array<IExpirence>;
 }
 
 const { expirences } = Astro.props as Props;
-
 ---
 
 <section id="about">
@@ -18,23 +17,23 @@ const { expirences } = Astro.props as Props;
     <div class="about-content">
         <aside class="expirence">
             <h3>Experiencia</h3>
-            {   expirences &&
-                expirences?.map((expirence) => (
-                    <AccordionUi title={expirence?.title}>
-                        <div class="expirence-content">
-                            <h4>Descripcion</h4>
-                            <ul>
-                                {expirence && expirence?.descriptions.map((description) => (
-                                    <li>{description}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </AccordionUi>
-                ))
-            }
-
-            { !expirences &&
-                <p>No hay experiencias</p>
+            {
+                expirences &&
+                    expirences?.map((expirence) => (
+                        <AccordionUi title={expirence?.title}>
+                            <div class="expirence-content">
+                                <h4>Descripcion</h4>
+                                <ul>
+                                    {expirence &&
+                                        expirence?.descriptions.map(
+                                            (description) => (
+                                                <li>{description}</li>
+                                            ),
+                                        )}
+                                </ul>
+                            </div>
+                        </AccordionUi>
+                    ))
             }
         </aside>
 
@@ -42,123 +41,102 @@ const { expirences } = Astro.props as Props;
             <h3>Habilidades</h3>
             <div class="grid">
                 <div class="skill">
-                    <img src="" alt="" />
-                    <span>logo</span>
+                    <img
+                        src="/imgs/java.svg"
+                        alt="Java-lenguaje de programación"
+                    />
+                    <span>Java</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/logo-javascript.svg"
+                        alt="Javascript-lenguaje de programación"
+                    />
+                    <span>Javascript</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/typescript.svg"
+                        alt="Typescript-lenguaje de programación"
+                    />
+                    <span>Typescript</span>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="skill">
+                    <img
+                        src="/imgs/spring-3.svg"
+                        alt="Spring-boot-framework de Java"
+                    />
+                    <span>Spring</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/angular-icon-1.svg"
+                        alt="Angular-framework de Javascript"
+                    />
+                    <span>Angular</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/nodejs-icon.svg"
+                        alt="Nodejs-framework de Javascript"
+                    />
+                    <span>Express</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/react-2.svg"
+                        alt="React-framework de Javascript"
+                    />
+                    <span>React</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/astrojs.svg"
+                        alt="Astrojs-framework de Javascript"
+                    />
+                    <span>Astro</span>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="skill">
+                    <img
+                        src="/imgs/mysql-logo-pure.svg"
+                        alt="MySQL-base de datos"
+                    />
+                    <span>MySQL</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/mongodb-icon-1.svg"
+                        alt="MongoDB-base de datos"
+                    />
+                    <span>MongoDB</span>
+                </div>
+                <div class="skill">
+                    <img
+                        src="/imgs/postgresql.svg"
+                        alt="PostgreSQL-base de datos"
+                    />
+                    <span>PostgreSQL</span>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="skill">
+                    <img
+                        src="/imgs/html-1.svg"
+                        alt="HTML-lenguaje de maquetación"
+                    />
+                    <span>HTML</span>
+                </div>
+                <div class="skill">
+                    <img src="/imgs/css-3.svg" alt="CSS-lenguaje de estilos" />
+                    <span>CSS</span>
                 </div>
             </div>
         </aside>
-        <!-- <div class="about-card about-content__expirence">
-            <h3>Experiencia</h3>
-            <div class="about-collapse__container">
-                Desarrollador Front-end - ChileCompra Santiago, 2024-2025
-            </div>
-            <div class="about-collapse__container">
-                Head Tech - OrganizaMe Viña del Mar, 2018-2024
-            </div>
-            <div class="about-collapse__container">
-                Desarrollador Full-stack - BanChile Santiago, 2022-2023
-            </div>
-            <div class="about-collapse__container">
-                Desarrollador Front-end - 2X3 Santiago, 2021-2022
-            </div>
-            <div class="about-collapse__container">
-                Desarrollador Back-end - Sigesi Montevideo, 2018
-            </div>
-            <div class="about-collapse__container">
-                Desarrollador Full-Stack - E-brain Viña del Mar, 2018
-            </div>
-        </div>
-        <div class="about-card about-content__tech">
-            <h3>Habilidades</h3>
-            <div class="about-logo__container-3">
-                <img
-                    src="/imgs/java.svg"
-                    alt="Java-lenguaje de programación"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/logo-javascript.svg"
-                    alt="Javascript-lenguaje de programación"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/typescript.svg"
-                    alt="Typescript-lenguaje de programación"
-                    width="60px"
-                    height="68px"
-                />
-            </div>
-            <div class="about-logo__container-3">
-                <img
-                    src="/imgs/html-1.svg"
-                    alt="HTML-lenguaje de maquetación"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/css-3.svg"
-                    alt="CSS-lenguaje de estilos"
-                    width="60px"
-                    height="68px"
-                />
-            </div>
-            <div class="about-logo__container-3">
-                <img
-                    src="/imgs/spring-3.svg"
-                    alt="Spring-boot-framework de Java"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/angular-icon-1.svg"
-                    alt="Angular-framework de Javascript"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/nodejs-icon.svg"
-                    alt="Nodejs-framework de Javascript"
-                    width="60px"
-                    height="68px"
-                />
-            </div>
-            <div class="about-logo__container-3">
-                <img
-                    src="/imgs/astrojs.svg"
-                    alt="Astrojs-framework de Javascript"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/react-2.svg"
-                    alt="React-framework de Javascript"
-                    width="60px"
-                    height="68px"
-                />
-            </div>
-            <div class="about-logo__container-3">
-                <img
-                    src="/imgs/mysql-logo-pure.svg"
-                    alt="MySQL-base de datos"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/mongodb-icon-1.svg"
-                    alt="MongoDB-base de datos"
-                    width="60px"
-                    height="68px"
-                />
-                <img
-                    src="/imgs/postgresql.svg"
-                    alt="PostgreSQL-base de datos"
-                    width="60px"
-                    height="68px"
-                />
-            </div>
-        </div> -->
     </div>
 </section>
 
