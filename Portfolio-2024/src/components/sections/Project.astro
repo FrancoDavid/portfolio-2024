@@ -2,13 +2,11 @@
 import type { IProject } from "../../interfaces/IProject";
 import Card from "../shared/Card.astro";
 
-
 interface Props {
-    projects: {front: Array<IProject>, back: Array<IProject>}
+    projects: { front: Array<IProject>; back: Array<IProject> };
 }
 
 const { projects } = Astro.props as Props;
-
 ---
 
 <section id="portfolio">
@@ -18,27 +16,63 @@ const { projects } = Astro.props as Props;
     </div>
 
     <div class="project-body">
-        
         <div class="project-container__header">
             <h3>Front-end</h3>
         </div>
 
-        <div class="project-container">
+        <div class="project-grid__container">
             {
-                projects && projects?.front.map((project, index) => (
-                    <Card key={index.toString()} project={project}></Card>
-                ))
+                projects &&
+                    projects?.front.map((project, index) => (
+                        <div class="project-card">
+                            <div class="project-card__header">
+                                <h4>{project.title}</h4>
+                            </div>
+                            <div class="project-card__content">
+                                <img src="/imgs/repofront.webp" alt="Carpeta" />
+                            </div>
+                            <div class="project-card__base">
+                                {project && project?.tags.map((tag, index) => (
+                                    <span>{tag}</span>
+                                ))}
+                            </div>
+                            <div class="project-card__footer">
+                                <a href={project?.url} target="_blank">
+                                    <img src="/imgs/icons8-github-48.png" alt="Github" />
+                                </a>
+                            </div>
+                        </div>
+                    ))
             }
         </div>
 
         <div class="project-container__header">
             <h3>Back-end</h3>
         </div>
-        <div class="project-container">
+
+        <div class="project-grid__container">
             {
-                projects && projects?.back.map((project, index) => (
-                    <Card key={index.toString()} project={project}></Card>
-                ))
+                projects &&
+                    projects?.back.map((project, index) => (
+                        <div class="project-card">
+                            <div class="project-card__header">
+                                <h4>{project.title}</h4>
+                            </div>
+                            <div class="project-card__content">
+                                <img src="/imgs/repoback.webp" alt="Carpeta" />
+                            </div>
+                            <div class="project-card__base">
+                                {project && project?.tags.map((tag, index) => (
+                                    <span>{tag}</span>
+                                ))}
+                            </div>
+                            <div class="project-card__footer">
+                                <a href={project?.url} target="_blank">
+                                    <img src="/imgs/icons8-github-48.png" alt="Github" />
+                                </a>
+                            </div>
+                        </div>
+                    ))
             }
         </div>
     </div>
@@ -93,7 +127,64 @@ const { projects } = Astro.props as Props;
         font-weight: 300;
         color: var(--white-main);
     }
-    
+
+    .project-grid__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 50px;
+        margin: 19px auto
+    }
+
+    .project-card {
+        background-color: var(--black-light);
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .project-card__header {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .project-card__header h4 {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--white-main);
+        margin-bottom: 16px;
+    }
+
+    .project-card__content img {
+        width: 100%;
+        height: 200px;
+    }
+    .project-card__base {
+        display: flex;
+        justify-content: space-around;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    .project-card__base span {
+        font-size: 1.5rem;
+        color: var(--grey-main);
+        background-color: var(--black-light);
+        padding: 5px 10px;
+        border-radius: 50px;
+        border: 1px solid var(--grey-main);
+    }
+
+    .project-card__footer {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
+    }
+
+    .project-card__footer img {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
     @media (max-width: 1024px) {
         section {
             padding: 100px 120px;
@@ -101,8 +192,7 @@ const { projects } = Astro.props as Props;
         .project-body {
             padding: 20px 50px;
         }
-    } 
-
+    }
 
     @media (max-width: 768px) {
         section {
@@ -111,8 +201,7 @@ const { projects } = Astro.props as Props;
         .project-body {
             padding: 10px 30px;
         }
-    } 
-
+    }
 
     @media (max-width: 425px) {
         section {
@@ -121,5 +210,5 @@ const { projects } = Astro.props as Props;
         .project-body {
             padding: 20px 10px;
         }
-    } 
+    }
 </style>
