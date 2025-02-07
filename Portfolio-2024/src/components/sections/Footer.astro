@@ -1,9 +1,14 @@
+---
+const { gitHub } = Astro.props;
+---
 <section>
     <aside>
         <img src="/imgs/logo_size_invert.jpg" alt="DevDark" width="200px" height="200px"/>
     </aside>
     <aside>
-        <img src="/imgs/github-white.svg" alt="Github">
+        <a href={gitHub} target="_blank">
+            <img src="/imgs/github-white.svg" alt="Github">
+        </a>
     </aside>
     <aside>
         <p>Developed by DarkDev&reg;</p>

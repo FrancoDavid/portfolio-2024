@@ -3,9 +3,12 @@ import Button from "../shared/Button.astro"
 
 ---
 
-<section id="contact" class="contacto">
+<section id="contact">
     <div class="contacto-contenedor">
-        <h2 class="contacto-titulo">Contacto</h2>
+        <div class="contact-title">
+            <h2>Contacto</h2>
+            <hr />
+        </div>
         <p class="contacto-descripcion">
             ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
             responderé lo antes posible.
@@ -45,12 +48,12 @@ import Button from "../shared/Button.astro"
                     rows="5"
                     required></textarea>
             </div>
-            <Button label="Enviar mensaje"></Button>
+            <Button key="send-email">Enviar mensaje</Button>
         </form>
     </div>
 </section>
 <style>
-    .contacto {
+    section {
         background-color: var(--black-secondary);
         color: var(--white-main);
         padding: 4rem 1rem 13rem;
@@ -60,6 +63,30 @@ import Button from "../shared/Button.astro"
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
+    }
+
+    .contact-title {
+        display: flex;
+        justify-content: center;
+
+        padding: 20px 50px;
+
+        margin-bottom: 20px;
+    }
+
+    .contact-title h2 {
+        font-weight: 300;
+        font-size: 3.2rem;
+        color: var(--white-main);
+        margin-right: 10px;
+    }
+
+
+    .contacto-contenedor h2 {
+        font-weight: 300;
+        font-size: 3.2rem;
+        color: var(--white-main);
+        margin-right: 10px;
     }
 
     .contacto-titulo {
@@ -89,6 +116,7 @@ import Button from "../shared/Button.astro"
         display: flex;
         flex-direction: column;
         text-align: left;
+        margin-bottom: 20px;
     }
 
     .formulario-etiqueta {

@@ -12,6 +12,7 @@ import type { IExpirence } from "../interfaces/IExperience"
 import type { IProject } from "../interfaces/IProject"
 
 const apiUrl = import.meta.env.API_URL;
+const gitHubUrl = import.meta.env.GITHUB_SITE_URL;
 
 const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
 const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
@@ -26,5 +27,5 @@ const projectsResult: {front: Array<IProject>, back: Array<IProject>} = await pr
 	<About expirences={expirencesResult || []}></About>
 	<Project projects={projectsResult || []}></Project>
 	<Contact></Contact>
-	<Footer></Footer>
+	<Footer gitHub={gitHubUrl || ''}></Footer>
 </Layout>
