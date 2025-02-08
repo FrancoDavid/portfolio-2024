@@ -1,5 +1,5 @@
 ---
-const { gitHub } = Astro.props;
+const { gitHub, linkedin } = Astro.props;
 ---
 <section>
     <aside>
@@ -9,6 +9,12 @@ const { gitHub } = Astro.props;
         <a href={gitHub} target="_blank">
             <img src="/imgs/github-white.svg" alt="Github">
         </a>
+        <a href={linkedin} target="_blank">
+            <img src="/imgs/icons8-linkedin-30.png" alt="Linkedin">
+        </a>
+    </aside>
+    <aside>
+        <p>¡Gracias por visitar mi portafolio! Espero que hayas disfrutado explorando mi trabajo. </p>
     </aside>
     <aside>
         <p>Developed by DarkDev&reg;</p>
@@ -30,6 +36,8 @@ aside {
 
     margin-bottom: 20px;
     font-size: 1.8rem;
+
+    gap: 10px;
 }
 
 </style>

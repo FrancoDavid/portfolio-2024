@@ -46,6 +46,10 @@ const { projects } = Astro.props as Props;
             }
         </div>
 
+        <div class="project-grid__more">
+            <p>Más...</p>
+        </div>
+
         <div class="project-container__header">
             <h3>Back-end</h3>
         </div>
@@ -75,6 +79,11 @@ const { projects } = Astro.props as Props;
                     ))
             }
         </div>
+
+        <div class="project-grid__more">
+            <p>Más...</p>
+        </div>
+
     </div>
 </section>
 
@@ -183,6 +192,24 @@ const { projects } = Astro.props as Props;
         width: 40px;
         height: 40px;
         cursor: pointer;
+    }
+
+    .project-grid__more {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .project-grid__more p {
+        font-size: 1.8rem;
+        color: var(--white-main);
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .project-grid__more p:hover {
+        color: var(--black-light);
+        text-decoration:line-through;
     }
 
     @media (max-width: 1024px) {

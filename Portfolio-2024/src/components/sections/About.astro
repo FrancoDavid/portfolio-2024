@@ -22,7 +22,6 @@ const { expirences } = Astro.props as Props;
                     expirences?.map((expirence) => (
                         <AccordionUi title={expirence?.title}>
                             <div class="expirence-content">
-                                <h4>Descripcion</h4>
                                 <ul>
                                     {expirence &&
                                         expirence?.descriptions.map(
@@ -220,8 +219,13 @@ const { expirences } = Astro.props as Props;
     }
     .expirence-content ul {
         padding: 10px 20px;
-        text-align: left;
-        font-size: 1.8rem;
+        text-align: justify;
+        font-size: 2.1rem;
+        line-height: 20px;
+    }
+
+    .expirence-content li {
+        margin-bottom: 10px;
     }
 
     /* SKILLS */
