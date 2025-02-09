@@ -51,11 +51,11 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>>}) => {
                                     <h4>{project.title}</h4>
                                 </div>
                                 <div className="project-card__content">
-                                    <img src="/imgs/repofront.webp" alt="Carpeta" />
+                                    <img src={project.image} alt="Carpeta" />
                                 </div>
                                 <div className="project-card__base">
                                     {project && project?.tags.map((tag, index) => (
-                                        <span>{tag}</span>
+                                        <span key={index}>{tag}</span>
                                     ))}
                                 </div>
                                 <div className="project-card__footer">
