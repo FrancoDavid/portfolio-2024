@@ -68,16 +68,12 @@ const { title } = Astro.props;
         }
 
         handleCollapser() {
-            console.log('handleCollapser');
             const accordions = this.querySelectorAll(".accordion-item");
 
             accordions.forEach((item) => {
-                console.log('forEach', item);
                 const elementSelected = item.querySelector(".accordion-header");
-                console.log('elementSelected', elementSelected);
                 if (elementSelected) {
                     elementSelected.addEventListener("click", function () {
-                        console.log('clickingh')
                         item.classList.toggle("active");
                     });
                 }
