@@ -3,7 +3,7 @@ import type { IProject } from "../../interfaces/IProject"
 
 import "./Projects.grid.style.css"
 
-const ProjectsGrid = (props: { projects: Array<Array<IProject>>}) => {
+const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
     const { projects } = props
 
     const totalPagesProjects = projects?.length - 1;
@@ -16,7 +16,7 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>>}) => {
 
     const handleMoreProjects = () => {
         const currentPage = projectsGrigPage + 1;
-        
+
         setProjectsGrid((prev) => {
             return [...prev, ...[projects[currentPage]]]
         })
@@ -30,7 +30,7 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>>}) => {
         })
         setProjectsGrigPage(projectsGrigPage - 1)
         setShowMore(true)
-        setShowLess(projectsGrigPage -1 > 0)
+        setShowLess(projectsGrigPage - 1 > 0)
     }
 
     useEffect(() => {
@@ -53,12 +53,13 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>>}) => {
                                 <div className="project-card__content">
                                     <img src={project.image} alt="Carpeta" />
                                 </div>
-                                <div className="project-card__base">
-                                    {project && project?.tags.map((tag, index) => (
-                                        <span key={index}>{tag}</span>
-                                    ))}
-                                </div>
                                 <div className="project-card__footer">
+                                    <div>
+                                        {project && project?.tags.map((tag, index) => (
+                                            <img key={index} src={tag} />
+                                        ))}
+                                    </div>
+
                                     <a href={project?.url} target="_blank">
                                         <img src="/imgs/icons8-github-48.png" alt="Github" />
                                     </a>
