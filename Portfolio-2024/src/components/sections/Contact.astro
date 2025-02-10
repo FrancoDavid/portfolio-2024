@@ -1,56 +1,66 @@
 ---
-import Button from "../shared/Button.astro"
+import Button from "../shared/Button.astro";
+
+const serviceID = import.meta.env.EMAILJS_SERVICE_ID
+const templateID = import.meta.env.EMAILJS_TEMPLATE_ID
+const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
 
 ---
-<section id="contact">
-    <div class="contact-title">
-        <h2>Contacto</h2>
-        <hr />
-    </div>
-    <div class="contacto-contenedor">
-        <p class="contacto-descripcion">
-            ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
-            responderé lo antes posible.
-        </p>
-        <form class="contacto-formulario">
-            <div class="formulario-grupo">
-                <label for="nombre" class="formulario-etiqueta">Nombre</label>
-                <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    class="formulario-input"
-                    placeholder="Tu nombre"
-                    required
-                />
-            </div>
-            <div class="formulario-grupo">
-                <label for="email" class="formulario-etiqueta"
-                    >Correo electrónico</label
-                >
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="formulario-input"
-                    placeholder="tucorreo@ejemplo.com"
-                    required
-                />
-            </div>
-            <div class="formulario-grupo">
-                <label for="mensaje" class="formulario-etiqueta">Mensaje</label>
-                <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    class="formulario-textarea"
-                    placeholder="Escribe tu mensaje aquí..."
-                    rows="5"
-                    required></textarea>
-            </div>
-            <Button key="send-email">Enviar mensaje</Button>
-        </form>
-    </div>
-</section>
+
+<contact-form data-service={serviceID} data-template={templateID} data-public={publicID}>
+    <section id="contact">
+        <div class="contact-title">
+            <h2>Contacto</h2>
+            <hr />
+        </div>
+        <div class="contacto-contenedor">
+            <p class="contacto-descripcion">
+                ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
+                responderé lo antes posible.
+            </p>
+            <form class="contacto-formulario">
+                <div class="formulario-grupo">
+                    <label for="name" class="formulario-etiqueta">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="name"
+                        class="formulario-input"
+                        placeholder="Tu nombre"
+                        required
+                    />
+                </div>
+                <div class="formulario-grupo">
+                    <label for="email" class="formulario-etiqueta"
+                        >Correo electrónico</label
+                    >
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="formulario-input"
+                        placeholder="tucorreo@ejemplo.com"
+                        required
+                    />
+                </div>
+                <div class="formulario-grupo">
+                    <label for="message" class="formulario-etiqueta"
+                        >Mensaje</label
+                    >
+                    <textarea
+                        id="mensaje"
+                        name="message"
+                        class="formulario-textarea"
+                        placeholder="Escribe tu mensaje aquí..."
+                        rows="5"
+                        required></textarea>
+                </div>
+                <Button type="submit" key="send-email">Enviar mensaje</Button>
+            </form>
+        </div>
+    </section>
+</contact-form>
+
 <style>
     section {
         background-color: var(--black-secondary);
@@ -83,7 +93,6 @@ import Button from "../shared/Button.astro"
         color: var(--white-main);
         margin-right: 10px;
     }
-
 
     .contacto-contenedor h2 {
         font-weight: 300;
@@ -154,3 +163,33 @@ import Button from "../shared/Button.astro"
         resize: vertical; /* Permite redimensionar verticalmente */
     }
 </style>
+<script>
+    import emailjs from "emailjs-com";
+
+    class ContactForm extends HTMLElement {
+        constructor() {
+            super();
+            this.handleSubmit();
+        }
+
+        handleSubmit() {
+            const form = this.querySelector("form");
+
+            if (form) {
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+
+                    const service = this.getAttribute("data-service") || '';
+                    const template = this.getAttribute("data-template") || '';
+                    const publicID = this.getAttribute("data-public") || '';
+
+                    emailjs.sendForm(service, template, form, publicID);
+                });
+            }
+        }
+    }
+
+    customElements.define("contact-form", ContactForm);
+</script>

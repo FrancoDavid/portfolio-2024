@@ -1,12 +1,13 @@
 ---
 interface Props {
-    key: string
+    key: string;
+    type: 'submit' | 'button';
 }
 
-const {key} = Astro.props
+const {key, type } = Astro.props
 ---
 
-<button id={key}><slot /></button>
+<button id={key} type={type}><slot /></button>
 
 <style>
     button {
