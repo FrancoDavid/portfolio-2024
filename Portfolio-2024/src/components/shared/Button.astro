@@ -26,4 +26,9 @@ const {key, type } = Astro.props
         box-shadow: 3px 3px 0 0 white;
         transform: translate(-4px, -4px);
     }
+
+    button:disabled {
+        background-color: var(--grey-main);
+        cursor: wait;
+    }
 </style>

@@ -76,15 +76,31 @@ import { CV_DICTIONARY } from "../../config"
         }
     }
 
+    .success-type {
+        font-size: 3rem;
+    }
+
 </style>
 
 <script>
+
+    import { Notyf } from 'notyf';
+    
     class NavMain extends HTMLElement {
+        notyf;
+
         constructor() {
             super();
             // this.handlerSideBar();
             this.handleScrollToSection()
             this.handleDownloadCV();
+            this.notyf = new Notyf({
+                duration: 2000,
+                position: {
+                    x: 'left',
+                    y: 'top',
+                }
+            });
         }
 
         handlerSideBar() {
@@ -122,8 +138,9 @@ import { CV_DICTIONARY } from "../../config"
                 document.body.appendChild(link);
                 
                 link.click();
-                
                 document.body.removeChild(link);
+
+                this.notyf.success('Descarga éxitosa');
             });
         }
     }

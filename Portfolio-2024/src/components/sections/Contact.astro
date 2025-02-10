@@ -165,27 +165,49 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
 </style>
 <script>
     import emailjs from "emailjs-com";
+    import { Notyf } from 'notyf';
+
 
     class ContactForm extends HTMLElement {
+        notyf;
+
         constructor() {
             super();
             this.handleSubmit();
+            this.notyf = new Notyf({
+                duration: 2000,
+                position: {
+                    x: 'right',
+                    y: 'top',
+                }
+            });
         }
 
         handleSubmit() {
             const form = this.querySelector("form");
+            const btnSend = this.querySelector("button");
 
             if (form) {
                 form.addEventListener("submit", async (e) => {
                     e.preventDefault();
-                    const formData = new FormData(form);
-                    const data = Object.fromEntries(formData.entries());
+                    
+                    if (btnSend) btnSend.disabled = true;
 
                     const service = this.getAttribute("data-service") || '';
                     const template = this.getAttribute("data-template") || '';
                     const publicID = this.getAttribute("data-public") || '';
 
-                    emailjs.sendForm(service, template, form, publicID);
+                    emailjs.sendForm(service, template, form, publicID)
+                        .then(() => {
+                            this.notyf.success('E-mail enviado con éxito');
+                            form.reset();
+
+                            if (btnSend) btnSend.disabled = false;
+                        })
+                        .catch(() => {
+                            this.notyf.error('E-mail no ha sido enviado')
+                            if (btnSend) btnSend.disabled = false;
+                        });
                 });
             }
         }
