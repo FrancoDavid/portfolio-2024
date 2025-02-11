@@ -46,7 +46,7 @@ const { title } = Astro.props;
     }
 
     .accordion-item.active .accordion-content {
-        max-height: 200px;
+        max-height: 250px;
     }
 
     .accordion-content ul {
@@ -57,6 +57,12 @@ const { title } = Astro.props;
     .accordion-slot {
         padding: 10px 20px;
     }
+
+    /* @media (min-width: 768px) {
+        .accordion-item.active .accordion-content {
+            max-height: 400px;
+        }
+    } */
 </style>
 
 <script>
