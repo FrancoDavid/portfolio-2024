@@ -7,11 +7,9 @@ import Button from "./Button.astro"
             <img id="close" src="/imgs/close.svg" alt="Cerrar"/>
         </div>
         <div class="sidebar-body">
-            <p>About</p>
-            <p>Projects</p>
-            <p>Skills</p>
-            <p>Expirence</p>
-            <p>Contact</p>
+            <a href="#about">Sobre mi</a>
+            <a href="#portfolio">Portafolio</a>
+            <a href="#contact">Contacto</a>
             <Button type="button" key="download-cv">Descargar CV</Button>
         </div>
     </aside>
@@ -49,19 +47,24 @@ import Button from "./Button.astro"
 
         font-size: 2rem;
     }
+
+    .sidebar-body a {
+        color: var(--white-main);
+        font-size: var(--text-sm);
+        text-decoration: none;
+    }
 </style>
 
 
 <script>
     import { Notyf } from 'notyf';
+    import { downloadCvService } from '../../services/downloadCv';    
     class SideBar extends HTMLElement {
         notyf;
+        btnDownloadCV: HTMLButtonElement;
 
         constructor() {
             super();
-            
-            this.handlerClose();
-            this.handleDownloadCV();
 
             this.notyf = new Notyf({
                 duration: 2000,
@@ -70,6 +73,10 @@ import Button from "./Button.astro"
                     y: 'top',
                 }
             });
+            this.btnDownloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
+
+            this.handlerClose();
+            this.handleDownloadCV();
         }
 
         handlerClose() {
@@ -82,22 +89,9 @@ import Button from "./Button.astro"
         }
 
         handleDownloadCV() {
-            const downloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
-            const routeCV = this.getAttribute("data-cv-route") || '';
-            const fileCV = this.getAttribute("data-cv-file") || '';
-
-            downloadCV?.addEventListener("click", () => {
-                const link = document.createElement("a");
-
-                link.href = routeCV;
-                link.download = fileCV;
-                
-                document.body.appendChild(link);
-                
-                link.click();
-                document.body.removeChild(link);
-
-                this.notyf.success('Descarga éxitosa');
+            this.btnDownloadCV?.addEventListener("click", () => {
+                downloadCvService()
+                    .then(() => this.notyf.success('Descarga éxitosa'))
             });
         }
     }

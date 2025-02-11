@@ -11,10 +11,7 @@ import Project from "../components/sections/Project.astro";
 import type { IExpirence } from "../interfaces/IExperience";
 import type { IProject } from "../interfaces/IProject";
 
-import { CV_DICTIONARY } from "../config";
-
-import 'notyf/notyf.min.css'; 
-
+import "notyf/notyf.min.css";
 
 const apiUrl = import.meta.env.API_URL;
 const gitHubUrl = import.meta.env.GITHUB_SITE_URL;
@@ -24,40 +21,15 @@ const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
 const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
 
 const projectsResponse = await fetch(`${apiUrl}/api/project`);
-const projectsResult: {front: Array<IProject>, back: Array<IProject>} = await projectsResponse.json();
+const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
+	await projectsResponse.json();
 ---
-<landing-page data-cv-route={CV_DICTIONARY.ROUTE} data-cv-file={CV_DICTIONARY.FILE}>
-	<Layout>
-		<Nav></Nav>
-		<Cover></Cover>
-		<About expirences={expirencesResult || []}></About>
-		<Project projects={projectsResult || []}></Project>
-		<Contact></Contact>
-		<Footer gitHub={gitHubUrl || ''} linkedin={linkedinUrl || ''}></Footer>
-	</Layout>
-</landing-page>
 
-
-<script>
-	class LandingPage extends HTMLElement {
-		private routeCV: string;
-    	private fileCV: string;
-
-		constructor() {
-			super();
-			
-			this.routeCV = this.getAttribute("data-cv-route") || '';
-            this.fileCV = this.getAttribute("data-cv-file") || '';
-
-			this.handleDownload()
-		}
-
-		handleDownload() {
-			console.log('handleDOWNLOAD')
-			this.addEventListener('download-cv', event => {
-				console.log('evento recibido desde landing page', this.routeCV, this.fileCV, event)
-			})
-		}
-	}
-    customElements.define('landing-page', LandingPage);
-</script>
+<Layout>
+	<Nav />
+	<Cover />
+	<About expirences={expirencesResult || []} />
+	<Project projects={projectsResult || []} />
+	<Contact />
+	<Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
+</Layout>
