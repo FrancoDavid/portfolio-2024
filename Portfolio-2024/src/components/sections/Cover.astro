@@ -11,7 +11,7 @@
                 sólida experiencia en tecnologías modernas.
             </p>
             <p>
-                Empedernido a la hora de  enfrentarme a
+                Empedernido a la hora de enfrentarme a
             </p>
             <p>
                 nuevos desafíos y aprender constantemente.
@@ -39,22 +39,54 @@
         margin-top: 50px;
     }
 
+    .header h1, .header h2, .header h3, .header p {
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+    }
+
     .header h1 {
         font-size: var(--text-md);
         font-weight: 300;
         color: var(--grey-main);
+        width: 9ch;
+        animation: 
+            show 0s linear forwards, /* Hace que aparezca en el momento correcto */
+            typing 1s steps(9) forwards,
+            blink 0.5s 5 step-end alternate,
+            border-remove 0.1s 1s forwards;
+
+        animation-delay: 0s, 0s, 0s, 1s; /* Coordinación de animaciones */
     }
+
 
     .header h2 {
         font-size: 6rem;
         font-weight: 600;
         color: var(--white-main);
+        width: 13ch;
+        animation: 
+            show 0s linear 3s forwards,
+            typing 1s steps(13) 3s forwards,
+            blink 0.5s 5 step-end alternate 3s,
+            border-remove 0.1s 2s forwards;
+        animation-delay: 1s, 1s, 1s, 2s; /* Coordinación de animaciones */
+        
     }
 
     .header h3 {
         font-size: 4rem;
         font-weight: 500;
         color: var(--grey-secondary);
+        width: 25ch;
+        animation: 
+            show 0s linear 7s forwards,
+            typing 1s steps(25) 7s forwards,
+            blink 0.5s 5 step-end alternate 7s,
+            border-remove 0.1s 2s forwards; 
+        animation-delay: 2s, 2s, 2s, 3s;
     }
 
     .header img {
@@ -71,6 +103,64 @@
         line-height: 24px;
     }
 
+    .header p:first-of-type {
+        width: 52ch;
+        animation: 
+            show 0s linear 7s forwards,
+            typing 1s steps(25) 7s forwards,
+            blink 0.5s 5 step-end alternate 7s,
+            border-remove 0.1s 2s forwards; 
+        animation-delay: 3s, 3s, 3s, 4s;
+    }
+    .header p:nth-of-type(2) {
+        width: 50ch;
+        animation: 
+            show 0s linear 7s forwards,
+            typing 1s steps(25) 7s forwards,
+            blink 0.5s 5 step-end alternate 7s,
+            border-remove 0.1s 2s forwards; 
+        animation-delay: 4s, 4s, 4s, 5s;
+    }
+    .header p:nth-of-type(3) {
+        width: 44ch;
+        animation: 
+            show 0s linear 7s forwards,
+            typing 1s steps(25) 7s forwards,
+            blink 0.5s 5 step-end alternate 7s,
+            border-remove 0.1s 2s forwards; 
+        animation-delay: 5s, 5s, 5s, 6s;
+    }
+    .header p:nth-of-type(4) {
+        width: 42ch;
+        animation: 
+            show 0s linear 7s forwards,
+            typing 1s steps(25) 7s forwards,
+            blink 0.5s infinite step-end alternate;
+        animation-delay: 6s, 6s, 6s;
+    }
+
+    @keyframes typing {
+        from { width: 0;}
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent;}
+        100% { border-color: transparent;}
+    }
+
+    @keyframes border-remove {
+        to { border-right: none; }
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
     @media (max-width: 1440px) {
         section {
             padding: 90px 70px;
