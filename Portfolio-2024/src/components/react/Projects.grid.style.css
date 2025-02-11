@@ -18,8 +18,8 @@
 }
 
 .project-card__header h4 {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: var(--text-lg);
+    font-weight:400;
     color: var(--white-main);
     margin-bottom: 16px;
 }
@@ -50,8 +50,8 @@
 }
 
 .project-card__footer img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .project-grid__more p {
-    font-size: 1.8rem;
+    font-size: var(--text-sm);
     color: var(--white-main);
     cursor: pointer;
     text-decoration: underline;

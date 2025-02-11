@@ -13,44 +13,44 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
             <h2>Contacto</h2>
             <hr />
         </div>
-        <div class="contacto-contenedor">
-            <p class="contacto-descripcion">
+        <div class="contact-container">
+            <p class="contact-container__description">
                 ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
                 responderé lo antes posible.
             </p>
-            <form class="contacto-formulario">
-                <div class="formulario-grupo">
-                    <label for="name" class="formulario-etiqueta">Nombre</label>
+            <form class="contact-container__form">
+                <div class="contact-container__form--group">
+                    <label for="name" class="contact-container__form--group-label">Nombre</label>
                     <input
                         type="text"
                         id="nombre"
                         name="name"
-                        class="formulario-input"
+                        class="contact-container__form--group-input"
                         placeholder="Tu nombre"
                         required
                     />
                 </div>
-                <div class="formulario-grupo">
-                    <label for="email" class="formulario-etiqueta"
+                <div class="contact-container__form--group">
+                    <label for="email" class="contact-container__form--group-label"
                         >Correo electrónico</label
                     >
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        class="formulario-input"
+                        class="contact-container__form--group-input"
                         placeholder="tucorreo@ejemplo.com"
                         required
                     />
                 </div>
-                <div class="formulario-grupo">
-                    <label for="message" class="formulario-etiqueta"
+                <div class="contact-container__form--group">
+                    <label for="message" class="contact-container__form--group-label"
                         >Mensaje</label
                     >
                     <textarea
                         id="mensaje"
                         name="message"
-                        class="formulario-textarea"
+                        class="contact-container__form--group-textarea"
                         placeholder="Escribe tu mensaje aquí..."
                         rows="5"
                         required></textarea>
@@ -72,7 +72,7 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
         padding: 100px 150px;
     }
 
-    .contacto-contenedor {
+    .contact-container {
         max-width: 600px;
         margin: 0 auto;
         text-align: center;
@@ -89,78 +89,60 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
 
     .contact-title h2 {
         font-weight: 300;
-        font-size: 3.2rem;
+        font-size: var(--text-xxl);
         color: var(--white-main);
         margin-right: 10px;
     }
 
-    .contacto-contenedor h2 {
-        font-weight: 300;
-        font-size: 3.2rem;
-        color: var(--white-main);
-        margin-right: 10px;
-    }
-
-    .contacto-titulo {
-        font-weight: 300;
-        font-size: 3.2rem;
-        color: var(--white-main);
-        text-decoration: underline;
-        margin-right: 10px;
-        padding: 20px 50px;
-        margin-bottom: 10px;
-    }
-
-    .contacto-descripcion {
-        font-size: 1.6rem;
+    .contact-container__description {
+        font-size: var(--text-lg);
         color: var(--white-main);
         margin-bottom: 2rem;
     }
 
-    /* Estilos del formulario */
-    .contacto-formulario {
+    .contact-container__form{
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
     }
 
-    .formulario-grupo {
+    .contact-container__form--group {
         display: flex;
         flex-direction: column;
         text-align: left;
         margin-bottom: 20px;
     }
 
-    .formulario-etiqueta {
-        font-size: 1.4rem;
+    .contact-container__form--group-label {
+        font-size: var(--text-md);
         color: #ffffff;
         margin-bottom: 0.5rem;
     }
 
-    .formulario-input,
-    .formulario-textarea {
+    .contact-container__form--group-input,
+    .contact-container__form--group-textarea {
         padding: 0.8rem;
-        border: 1px solid #333333; /* Borde gris oscuro */
+        border: 1px solid #333333;
         border-radius: 4px;
-        background-color: #262626; /* Fondo gris oscuro */
+        background-color: #262626;
         color: #ffffff;
-        font-size: 1.3rem;
+        font-size: var(--text-sm);
         transition: border-color 0.3s ease;
     }
 
-    .formulario-input::placeholder,
-    .formulario-textarea::placeholder {
-        color: #666666; /* Placeholder gris */
+    .contact-container__form--group-input::placeholder,
+    .contact-container__form--group-textarea::placeholder {
+        color: #666666;
     }
 
-    .formulario-input:focus,
-    .formulario-textarea:focus {
-        border-color: #ffffff; /* Borde blanco al enfocar */
+    .contact-container__form--group-input:focus,
+    .contact-container__form--group-textarea :focus {
+        border-color: #ffffff;
         outline: none;
     }
 
-    .formulario-textarea {
-        resize: vertical; /* Permite redimensionar verticalmente */
+    .contact-container__form--group-textarea  {
+        resize: vertical;
     }
 </style>
 <script>

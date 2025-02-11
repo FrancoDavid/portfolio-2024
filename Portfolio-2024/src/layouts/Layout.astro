@@ -1,18 +1,21 @@
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap" rel="stylesheet">
-	</head>
-	<body>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
         <slot />
-	</body>
+    </body>
 </html>
 
 <style is:global>
@@ -21,29 +24,48 @@
         padding: 0;
         box-sizing: border-box;
     }
-
-    html {
-        font-family: "M PLUS 1 Code", monospace;
-        font-optical-sizing: auto;
-        font-style: normal;
-    }
-
     :root {
-        --black-main: #141414;
-        --white-main: #D8D8D8;
-        --grey-main: grey;
+        --base-font-size: 16px;
+        --font-family: "M PLUS 1 Code", monospace;
+        --scale: 1.25;
 
+        --text-xs: calc(1rem / var(--scale));
+        --text-sm: 1rem;
+        --text-md: calc(1rem * var(--scale));
+        --text-lg: calc(1rem * var(--scale) * var(--scale));
+        --text-xl: calc(1rem * var(--scale) * var(--scale) * var(--scale));
+        --text-xxl: calc(
+            1rem * var(--scale) * var(--scale) * var(--scale) * var(--scale)
+        );
+
+        --heading-font-weight: 700;
+        --body-font-weight: 400;
+        --line-height-base: 1.6;
+
+        /* Colores */
+        --black-main: #141414;
+        --white-main: #d8d8d8;
+        --grey-main: grey;
         --black-secondary: #1c1c1c;
         --grey-secondary: #5a5959;
-
         --black-tertiary: #141414fc;
         --black-cube: #141414f5;
         --black-light: #302e2e;
-        
         --grey-light: #d4d4d4;
+    }
+    html {
+        font-size: var(--base-font-size);
+        font-family: var(--font-family);
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+    p, a {
+        font-size: var(--text-sm);
+        font-weight: var(--body-font-weight);
+        line-height: var(--line-height-base);
     }
 
     span {
-        font-size: 1.3rem;
+        font-size: var(--text-xs);
     }
 </style>

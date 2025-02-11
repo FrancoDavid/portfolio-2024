@@ -161,7 +161,7 @@ const { expirences } = Astro.props as Props;
 
     .about-title h2 {
         font-weight: 300;
-        font-size: 3.2rem;
+        font-size: var(--text-xxl);
         color: var(--white-main);
         margin-right: 10px;
     }
@@ -172,7 +172,7 @@ const { expirences } = Astro.props as Props;
     }
 
     .about-content h3 {
-        font-size: 2.5rem;
+        font-size: var(--text-xl);
         font-weight: 400;
 
         margin-bottom: 16px;
@@ -213,15 +213,12 @@ const { expirences } = Astro.props as Props;
         margin-bottom: 60px;
     }
 
-    .expirence-content h4 {
-        font-size: 1.8rem;
-        font-weight: 400;
-    }
     .expirence-content ul {
         padding: 10px 20px;
         text-align: justify;
-        font-size: 2.1rem;
+        font-size: var(--text-sm);
         line-height: 20px;
+        color: var(--grey-main)
     }
 
     .expirence-content li {
