@@ -21,7 +21,7 @@ import { CV_DICTIONARY } from "../../config"
         </section>
     </nav>
     
-    <!-- <SideBar></SideBar> -->
+    <SideBar></SideBar>
 </nav-main>
 
 <style>
@@ -80,13 +80,18 @@ import { CV_DICTIONARY } from "../../config"
 <script>
 
     import { Notyf } from 'notyf';
-    
+    import { downloadCvService } from '../../services/downloadCv'    
     class NavMain extends HTMLElement {
         notyf;
+        downloadEvent: CustomEvent;
+
 
         constructor() {
             super();
-            // this.handlerSideBar();
+
+            this.downloadEvent = new CustomEvent('download-cv')
+        
+            this.handlerSideBar();
             this.handleScrollToSection()
             this.handleDownloadCV();
             this.notyf = new Notyf({
@@ -119,7 +124,7 @@ import { CV_DICTIONARY } from "../../config"
             });
         }
 
-        handleDownloadCV() {
+        handleDownloadCV_() {
             const downloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
             const routeCV = this.getAttribute("data-cv-route") || '';
             const fileCV = this.getAttribute("data-cv-file") || '';
@@ -137,6 +142,16 @@ import { CV_DICTIONARY } from "../../config"
 
                 this.notyf.success('Descarga éxitosa');
             });
+        }
+        
+        handleDownloadCV() {
+            const downloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
+            
+
+            downloadCV?.addEventListener("click", () => {
+                console.log('click')
+                downloadCvService();
+            })
         }
     }
 

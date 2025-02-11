@@ -12,7 +12,7 @@ import Button from "./Button.astro"
             <p>Skills</p>
             <p>Expirence</p>
             <p>Contact</p>
-            <Button label="Resume"></Button>
+            <Button type="button" key="download-cv">Descargar CV</Button>
         </div>
     </aside>
 </side-bar>
@@ -53,10 +53,23 @@ import Button from "./Button.astro"
 
 
 <script>
+    import { Notyf } from 'notyf';
     class SideBar extends HTMLElement {
+        notyf;
+
         constructor() {
             super();
+            
             this.handlerClose();
+            this.handleDownloadCV();
+
+            this.notyf = new Notyf({
+                duration: 2000,
+                position: {
+                    x: 'left',
+                    y: 'top',
+                }
+            });
         }
 
         handlerClose() {
@@ -65,6 +78,26 @@ import Button from "./Button.astro"
 
             closeElement?.addEventListener('click', () => {
                 sideBar.style.right = "-50%";
+            });
+        }
+
+        handleDownloadCV() {
+            const downloadCV = this.querySelector("#download-cv") as HTMLButtonElement;
+            const routeCV = this.getAttribute("data-cv-route") || '';
+            const fileCV = this.getAttribute("data-cv-file") || '';
+
+            downloadCV?.addEventListener("click", () => {
+                const link = document.createElement("a");
+
+                link.href = routeCV;
+                link.download = fileCV;
+                
+                document.body.appendChild(link);
+                
+                link.click();
+                document.body.removeChild(link);
+
+                this.notyf.success('Descarga éxitosa');
             });
         }
     }
