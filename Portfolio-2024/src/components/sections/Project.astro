@@ -53,7 +53,7 @@ const backProjects = createMultiGrid(projects?.back, 3);
         min-height: 100vh;
         height: 100%;
 
-        padding: 100px 150px;
+        padding: 100px;
     }
 
     .project-title {
@@ -73,7 +73,7 @@ const backProjects = createMultiGrid(projects?.back, 3);
     }
 
     .project-body {
-        padding: 20px 100px;
+        padding: 20px;
     }
 
     .project-container {
@@ -95,30 +95,24 @@ const backProjects = createMultiGrid(projects?.back, 3);
         color: var(--white-main);
     }
 
+    @media (max-width: 1444px) {
+        section {
+            padding: 100px 80px;
+        }
+    }
+
     @media (max-width: 1024px) {
         section {
-            padding: 100px 120px;
-        }
-        .project-body {
-            padding: 20px 50px;
+            padding: 100px 80px;
         }
     }
 
     @media (max-width: 768px) {
         section {
-            padding: 50px 70px;
+            padding: 50px 30px;
         }
         .project-body {
-            padding: 10px 30px;
-        }
-    }
-
-    @media (max-width: 425px) {
-        section {
-            padding: 30px 30px;
-        }
-        .project-body {
-            padding: 20px 10px;
+            padding: 0
         }
     }
 </style>
