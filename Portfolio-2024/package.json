@@ -4,10 +4,16 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "start": "NODE_ENV=development astro dev",
+    "pre": "NODE_ENV=pre astro dev",
+
+    "build": "NODE_ENV=prod astro check && astro build",
+    "build:pre": "NODE_ENV=pre astro build",
+    "build:prod": "NODE_ENV=prod astro build",
     "preview": "astro preview",
+    "preview:prod": "NODE_ENV=prod astro preview",
     "astro": "astro"
+
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -15,6 +21,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^4.6.3",
+    "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.4.2",
     "notyf": "^3.10.0",
