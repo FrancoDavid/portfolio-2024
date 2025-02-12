@@ -26,10 +26,37 @@ const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
 ---
 
 <Layout>
-	<Nav />
-	<Cover />
-	<About expirences={expirencesResult || []} />
-	<Project projects={projectsResult || []} />
-	<Contact />
-	<Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
+	<landing-page>
+		<Nav />
+		<Cover />
+		<About expirences={expirencesResult || []} />
+		<Project projects={projectsResult || []} />
+		<Contact />
+		<Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
+	</landing-page>
 </Layout>
+
+<script>
+	class LandingPage extends HTMLElement {
+		elementsHidden: NodeList;
+		observerScroll: IntersectionObserver;
+
+		constructor() {
+			super();
+			this.elementsHidden = this.querySelectorAll(".hidden");
+			this.observerScroll =  new IntersectionObserver(this.callbackIntersection, { threshold: 0.2 })
+			this.handleAnimationScroll();
+		}
+
+		callbackIntersection(intersections: IntersectionObserverEntry[]) {
+			intersections.forEach(intersection => {
+				intersection.isIntersecting && intersection.target.classList.add('show');
+			});
+		}
+
+		handleAnimationScroll() {
+			this.elementsHidden.forEach(((element) =>this.observerScroll.observe(element as Element)))
+		}
+	}
+	customElements.define("landing-page", LandingPage);
+</script>

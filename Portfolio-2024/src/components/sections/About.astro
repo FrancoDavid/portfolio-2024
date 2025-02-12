@@ -11,10 +11,9 @@ const { expirences } = Astro.props as Props;
 
 <section id="about">
     <div class="about-title">
-        <h2>Sobre mi</h2>
-        <hr />
+        <h2 class="hidden">Sobre mi</h2>
     </div>
-    <div class="about-content">
+    <div class="about-content hidden">
         <aside class="expirence">
             <h3>Experiencia</h3>
             {
@@ -164,6 +163,14 @@ const { expirences } = Astro.props as Props;
         font-size: var(--text-xxl);
         color: var(--white-main);
         margin-right: 10px;
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        width: 9ch;
+        animation:
+            typing 1s steps(9) forwards,
+            blink 0.5s infinite step-end alternate;
+        animation-delay: 0s, 1s;
     }
 
     .about-content {
@@ -218,11 +225,24 @@ const { expirences } = Astro.props as Props;
         text-align: justify;
         font-size: var(--text-sm);
         line-height: 20px;
-        color: var(--grey-main)
+        color: var(--grey-main);
     }
 
     .expirence-content li {
         margin-bottom: 10px;
+    }
+
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* SKILLS */
@@ -255,6 +275,31 @@ const { expirences } = Astro.props as Props;
         margin-top: 10px;
         font-size: 1rem;
         color: #ccc;
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+        100% {
+            border-color: transparent;
+        }
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     @media (max-width: 1200px) {
