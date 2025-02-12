@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 import type { IProject } from "../../interfaces/IProject"
 
 import "./Projects.grid.style.css"
 
-const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
-    const { projects } = props
+const ProjectsGrid = (props: { projects: Array<Array<IProject>>, title: string }) => {
+    const { projects, title } = props
 
     const totalPagesProjects = projects?.length - 1;
 
@@ -15,6 +15,8 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
 
     const [showMore, setShowMore] = useState<boolean>(false)
     const [showLess, setShowLess] = useState<boolean>(false)
+
+    const titleRef = useRef<HTMLDivElement | null>(null);
 
     const handleMoreProjects = () => {
         const currentPage = projectsGrigPage + 1;
@@ -33,6 +35,8 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
         setProjectsGrigPage(projectsGrigPage - 1)
         setShowMore(true)
         setShowLess(projectsGrigPage - 1 > 0)
+
+        titleRef.current && titleRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     useEffect(() => {
@@ -42,6 +46,9 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
 
     return (
         <>
+            <div className="project-container__header" ref={titleRef}>
+                <h3 className="hidden">{title}</h3>
+            </div>
             <div className="project-grid__container hidden">
                 {
                     projectsGrid &&
