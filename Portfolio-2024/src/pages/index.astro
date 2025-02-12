@@ -44,6 +44,7 @@ const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
 		constructor() {
 			super();
 			this.elementsHidden = this.querySelectorAll(".hidden");
+			console.log('elements', this.elementsHidden)
 			this.observerScroll =  new IntersectionObserver(this.callbackIntersection, { threshold: 0.2 })
 			this.handleAnimationScroll();
 		}

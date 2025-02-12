@@ -23,13 +23,12 @@ const backProjects = createMultiGrid(projects?.back, 3);
 
 <section id="portfolio">
     <div class="project-title">
-        <h2>Portafolio</h2>
-        <hr />
+        <h2 class="hidden">Portafolio</h2>
     </div>
 
     <div class="project-body">
         <div class="project-container__header">
-            <h3>Front-end</h3>
+            <h3 class="hidden">Front-end</h3>
         </div>
 
         <ProjectsGrid
@@ -38,7 +37,7 @@ const backProjects = createMultiGrid(projects?.back, 3);
         />
 
         <div class="project-container__header">
-            <h3>Back-end</h3>
+            <h3 class="hidden">Back-end</h3>
         </div>
 
         <ProjectsGrid client:load projects={backProjects || []} />
@@ -70,6 +69,19 @@ const backProjects = createMultiGrid(projects?.back, 3);
         font-size: var(--text-xxl);
         color: var(--white-main);
         margin-right: 10px;
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        width: 11ch;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .project-title h2.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
     }
 
     .project-body {
@@ -93,6 +105,46 @@ const backProjects = createMultiGrid(projects?.back, 3);
         font-size: var(--text-xl);
         font-weight: 300;
         color: var(--white-main);
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        width: 10ch;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+    .project-container__header h3.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
+    }
+
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+        100% {
+            border-color: transparent;
+        }
     }
 
     @media (max-width: 1444px) {

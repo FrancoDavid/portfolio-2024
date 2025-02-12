@@ -10,6 +10,7 @@
     background-color: var(--black-light);
     border-radius: 5px;
     padding: 20px;
+    cursor: pointer;
 }
 
 .project-card__header {
@@ -52,9 +53,10 @@
 }
 
 .project-card__footer img {
-    width: 35px;
+    width: 30px;
     height: auto;
     cursor: pointer;
+    padding: 4px;
 }
 
 .project-grid__more {
@@ -73,6 +75,19 @@
 .project-grid__more p:hover {
     color: var(--black-light);
     text-decoration:line-through;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 1444px) {

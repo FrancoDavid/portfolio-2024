@@ -10,15 +10,20 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
 <contact-form data-service={serviceID} data-template={templateID} data-public={publicID}>
     <section id="contact">
         <div class="contact-title">
-            <h2>Contacto</h2>
-            <hr />
+            <h2 class="hidden">Contacto</h2>
         </div>
         <div class="contact-container">
-            <p class="contact-container__description">
-                ¿Tienes alguna pregunta o proyecto en mente? Escríbeme y te
-                responderé lo antes posible.
-            </p>
-            <form class="contact-container__form">
+            <div class="contact-container__description">
+                <p id="first-paragraph" class="hidden">
+                    ¿Tienes alguna pregunta o proyecto en mente?
+                </p>
+                <p id="second-paragraph" class="hidden">
+                    Escríbeme y te responderé lo antes posible.
+                </p>
+            </div>
+            
+            
+            <form class="contact-container__form hidden">
                 <div class="contact-container__form--group">
                     <label for="name" class="contact-container__form--group-label">Nombre</label>
                     <input
@@ -92,12 +97,45 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
         font-size: var(--text-xxl);
         color: var(--white-main);
         margin-right: 10px;
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        width: 9ch;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .contact-title h2.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
     }
 
     .contact-container__description {
+        margin-bottom: 2rem;   
+    }
+    .contact-container__description p {
         font-size: var(--text-lg);
         color: var(--white-main);
-        margin-bottom: 2rem;
+        margin-right: 10px;
+        border-right: 4px solid;
+        opacity: 0;
+        visibility: hidden;
+        width: 45ch;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    #first-paragraph.show {
+        animation:  show 0s linear 3s forwards, typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate, border-remove 0.1s 2s forwards;
+        animation-delay: 1s, 1s, 1s, 2s;
+    }
+
+    #second-paragraph.show {
+        animation:  show 0s linear 3s forwards, typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
+        animation-delay: 2s, 2s, 2s;
     }
 
     .contact-container__form{
@@ -145,6 +183,46 @@ const publicID = import.meta.env.EMAILJS_PUBLIC_KEY
         resize: vertical;
     }
 
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+        100% {
+            border-color: transparent;
+        }
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            visibility: hidden;
+        }
+        100% {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    @keyframes border-remove {
+        to { border-right: none; }
+    }
     @media (max-width: 768px) {
         section {
             padding: 100px 50px;

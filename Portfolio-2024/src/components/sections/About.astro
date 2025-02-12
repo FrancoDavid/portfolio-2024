@@ -13,31 +13,33 @@ const { expirences } = Astro.props as Props;
     <div class="about-title">
         <h2 class="hidden">Sobre mi</h2>
     </div>
-    <div class="about-content hidden">
+    <div class="about-content">
         <aside class="expirence">
-            <h3>Experiencia</h3>
-            {
-                expirences &&
-                    expirences?.map((expirence) => (
-                        <AccordionUi title={expirence?.title}>
-                            <div class="expirence-content">
-                                <ul>
-                                    {expirence &&
-                                        expirence?.descriptions.map(
-                                            (description) => (
-                                                <li>{description}</li>
-                                            ),
-                                        )}
-                                </ul>
-                            </div>
-                        </AccordionUi>
-                    ))
-            }
+            <h3 class="hidden">Experiencia</h3>
+            <div class="hidden">
+                {
+                    expirences &&
+                        expirences?.map((expirence) => (
+                            <AccordionUi title={expirence?.title}>
+                                <div class="expirence-content">
+                                    <ul>
+                                        {expirence &&
+                                            expirence?.descriptions.map(
+                                                (description) => (
+                                                    <li>{description}</li>
+                                                ),
+                                            )}
+                                    </ul>
+                                </div>
+                            </AccordionUi>
+                        ))
+                }
+            </div>
         </aside>
 
         <aside class="skills">
-            <h3>Habilidades</h3>
-            <div class="grid">
+            <h3 class="hidden">Habilidades</h3>
+            <div class="grid hidden">
                 <div class="skill">
                     <img
                         src="/imgs/java.svg"
@@ -60,8 +62,7 @@ const { expirences } = Astro.props as Props;
                     <span>Typescript</span>
                 </div>
             </div>
-
-            <div class="grid">
+            <div class="grid hidden">
                 <div class="skill">
                     <img
                         src="/imgs/spring-3.svg"
@@ -98,7 +99,7 @@ const { expirences } = Astro.props as Props;
                     <span>Astro</span>
                 </div>
             </div>
-            <div class="grid">
+            <div class="grid hidden">
                 <div class="skill">
                     <img
                         src="/imgs/mysql-logo-pure.svg"
@@ -121,7 +122,7 @@ const { expirences } = Astro.props as Props;
                     <span>PostgreSQL</span>
                 </div>
             </div>
-            <div class="grid">
+            <div class="grid hidden">
                 <div class="skill">
                     <img
                         src="/imgs/html-1.svg"
@@ -166,11 +167,16 @@ const { expirences } = Astro.props as Props;
         white-space: nowrap;
         border-right: 4px solid;
         overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
         width: 9ch;
-        animation:
-            typing 1s steps(9) forwards,
-            blink 0.5s infinite step-end alternate;
-        animation-delay: 0s, 1s;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .about-title h2.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
     }
 
     .about-content {
@@ -181,8 +187,21 @@ const { expirences } = Astro.props as Props;
     .about-content h3 {
         font-size: var(--text-xl);
         font-weight: 400;
-
         margin-bottom: 16px;
+        margin-right: 10px;
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        width: 12ch;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .about-content h3.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
     }
 
     .about-card {
@@ -277,6 +296,24 @@ const { expirences } = Astro.props as Props;
         color: #ccc;
     }
 
+    .skill h3 {
+        margin-right: 10px;
+        white-space: nowrap;
+        border-right: 4px solid;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        width: 12ch;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    }
+
+    .skill h3.show {
+        opacity: 1;
+        visibility: visible;
+        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
+    }
+
+
     @keyframes typing {
         from {
             width: 0;
@@ -291,17 +328,6 @@ const { expirences } = Astro.props as Props;
             border-color: transparent;
         }
     }
-    @keyframes show {
-        0% {
-            opacity: 0;
-            visibility: hidden;
-        }
-        100% {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-
     @media (max-width: 1200px) {
         section {
             padding: 90px 120px;

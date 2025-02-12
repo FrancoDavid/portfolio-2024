@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+
 import type { IProject } from "../../interfaces/IProject"
 
 import "./Projects.grid.style.css"
@@ -40,13 +42,20 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
 
     return (
         <>
-            <div className="project-grid__container">
+            <div className="project-grid__container hidden">
                 {
                     projectsGrid &&
                     projectsGrid?.map(projects => (
 
                         projects?.map((project, index) => (
-                            <div className="project-card" key={index}>
+                            <motion.div
+                                className="project-card"
+                                key={index}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: "spring", stiffness: 200 }}
+                            >
                                 <div className="project-card__header">
                                     <h4>{project.title}</h4>
                                 </div>
@@ -64,12 +73,12 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>> }) => {
                                         <img src="/imgs/icons8-github-30.png" alt="Github" />
                                     </a>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))
                     ))
                 }
             </div>
-            <div className="project-grid__more">
+            <div className="project-grid__more hidden">
                 <div>{showLess && <p onClick={handleLessProjects}>Menos...</p>}</div>
                 <div>{showMore && <p onClick={handleMoreProjects}>Más...</p>}</div>
             </div>
