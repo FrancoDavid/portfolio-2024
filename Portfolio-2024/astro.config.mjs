@@ -2,8 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import dotenv from 'dotenv';
 import path from 'path';
-import vercel from '@astrojs/vercel/serverless'
-import node from '@astrojs/node'
+import vercel from '@astrojs/vercel'
 
 const ENV = process.env.NODE_ENV || 'development'
 
