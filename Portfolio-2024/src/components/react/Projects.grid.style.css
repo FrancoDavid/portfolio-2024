@@ -140,6 +140,13 @@
     .project-grid__container {
         grid-template-columns: repeat(2, 1fr);
     }
+    .project-card__header h4 {
+        font-size: var(--text-md);
+    }
+
+    .project-container__header h3 {
+        font-size: var(--text-lg);
+    }
 }
 
 @media (max-width: 768px) {
@@ -151,5 +158,13 @@
 @media (max-width: 425px) {
     .project-grid__container {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .project-card__header h4 {
+        font-size: var(--text-sm);
+    }
+
+    .project-container__header h3 {
+        font-size: var(--text-md);
     }
 }

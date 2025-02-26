@@ -227,13 +227,52 @@ const publicID = 'lebt2ui51IVXSzIhx'
         section {
             padding: 100px 50px;
         }
+        .contact-title h2 {
+            font-size: var(--text-xl);
+        }
+    }
+
+    @media (max-width: 632px) {
+        section {
+            padding: 100px 50px;
+        }
+        .contact-title h2 {
+            font-size: var(--text-xl);
+        }
+        .contact-container__description p {
+            font-size: var(--text-md);
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .contact-container__description p {
+            font-size: var(--text-sm);
+        }
+
+        .contact-container__form--group-label {
+            font-size: var(--text-sm);
+        }
     }
     @media (max-width: 425px) {
         section {
             padding: 100px 30px;
         }
+
+        .contact-title h2 {
+            font-size: var(--text-lg);
+        }
     }
 
+    @media (max-width: 375px) {
+        .contact-container__description p {
+            font-size: var(--text-xs);
+        }
+
+        .contact-container__form--group-label {
+            font-size: var(--text-xs);
+        }
+    }
 </style>
 <script>
     import emailjs from "emailjs-com";

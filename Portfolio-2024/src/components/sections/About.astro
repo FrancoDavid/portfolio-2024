@@ -338,6 +338,16 @@ const { expirences } = Astro.props as Props;
         section {
             padding: 90px 90px;
         }
+
+        .about-title h2 {
+            font-size: var(--text-xl);
+        }
+
+        .about-content h3 {
+            font-size: var(--text-lg);
+        }
+
+        
     }
 
     @media (max-width: 768px) {
@@ -349,6 +359,18 @@ const { expirences } = Astro.props as Props;
     @media (max-width: 576px) {
         section {
             padding: 40px 20px;
+        }
+
+        .about-title h2 {
+            font-size: var(--text-lg);
+        }
+
+        .about-content h3 {
+            font-size: var(--text-md);
+        }
+
+        .expirence-content ul {
+            font-size: var(--text-xs);
         }
     }
 </style>
