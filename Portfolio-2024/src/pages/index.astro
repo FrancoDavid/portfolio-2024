@@ -17,12 +17,16 @@ const apiUrl = 'http://localhost:4321';
 const gitHubUrl = 'https://github.com/FrancoDavid'
 const linkedinUrl = 'https://www.linkedin.com/in/franco-david-aguirre-avalos-0173b1140'
 
-const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
-const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
+// const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
+// const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
 
-const projectsResponse = await fetch(`${apiUrl}/api/project`);
-const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
-	await projectsResponse.json();
+// const projectsResponse = await fetch(`${apiUrl}/api/project`);
+// const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
+// 	await projectsResponse.json();
+
+const expirencesResult: Array<IExpirence> = [];
+const projectsResult: { front: Array<IProject>; back: Array<IProject> } = { front: [], back: [] };
+
 ---
 
 <Layout>
