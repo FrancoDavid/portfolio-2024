@@ -25,19 +25,8 @@ const linkedinUrl = 'https://www.linkedin.com/in/franco-david-aguirre-avalos-017
 // const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
 // 	await projectsResponse.json();
 
-let expirencesResult: Array<IExpirence> = [];
-let projectsResult: { front: Array<IProject>; back: Array<IProject> } = { front: [], back: [] };
-
-try {
-	const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
-	expirencesResult = await expirencesResponse.json();
-
-	const projectsResponse = await fetch(`${apiUrl}/api/project`);
-	projectsResult = await projectsResponse.json();
-} catch (error) {
-	console.error(error);
-}
-
+const expirencesResult: Array<IExpirence> = [];
+const projectsResult: { front: Array<IProject>; back: Array<IProject> } = { front: [], back: [] };
 
 ---
 
