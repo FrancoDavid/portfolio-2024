@@ -13,9 +13,9 @@ import type { IProject } from "../interfaces/IProject";
 
 import "notyf/notyf.min.css";
 
-const apiUrl = import.meta.env.API_URL;
-const gitHubUrl = import.meta.env.GITHUB_SITE_URL;
-const linkedinUrl = import.meta.env.LINKEDIN_SITE_URL;
+const apiUrl = 'http://localhost:4321';
+const gitHubUrl = 'https://github.com/FrancoDavid'
+const linkedinUrl = 'https://www.linkedin.com/in/franco-david-aguirre-avalos-0173b1140'
 
 const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
 const expirencesResult: Array<IExpirence> = await expirencesResponse.json();

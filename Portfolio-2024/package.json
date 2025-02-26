@@ -6,21 +6,21 @@
     "dev": "astro dev",
     "start": "NODE_ENV=development astro dev",
     "pre": "NODE_ENV=pre astro dev",
-
-    "build": "NODE_ENV=prod astro check && astro build",
+    "build": "astro check && astro build",
     "build:pre": "NODE_ENV=pre astro build",
     "build:prod": "NODE_ENV=prod astro build",
     "preview": "astro preview",
     "preview:prod": "NODE_ENV=prod astro preview",
     "astro": "astro"
-
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@astrojs/node": "^9.1.1",
     "@astrojs/react": "^4.2.0",
+    "@astrojs/vercel": "^8.0.7",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "astro": "^4.6.3",
+    "astro": "^5.3.0",
     "dotenv": "^16.4.7",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.4.2",
@@ -28,5 +28,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.20.5"
   }
 }
