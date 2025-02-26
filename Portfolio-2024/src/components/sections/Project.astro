@@ -126,14 +126,27 @@ const backProjects = createMultiGrid(projects?.back, 3);
         section {
             padding: 100px 80px;
         }
-    }
 
+        .project-title h2 {
+            font-size: var(--text-xl);
+        }
+    }
     @media (max-width: 768px) {
         section {
             padding: 50px 30px;
         }
         .project-body {
             padding: 0
+        }
+    }
+
+    @media (max-width: 576px) {
+        section {
+            padding: 40px 20px;
+        }
+
+        .project-title h2 {
+            font-size: var(--text-lg);
         }
     }
 </style>

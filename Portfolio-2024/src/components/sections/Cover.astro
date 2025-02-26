@@ -226,6 +226,10 @@
             margin-top: 50px;
         }
 
+        .header h1 {
+            font-size: var(--text-sm)
+        }
+
         .header h2 {
             font-size: 4rem;
             text-align: center;
@@ -238,7 +242,7 @@
 
         .header p {
             font-size: var(--text-md);
-            text-align: center;
+            text-align: left;
         }
     }
 
@@ -252,13 +256,63 @@
             font-size: 2.9rem;
         }
 
+        .header h3 {
+            font-size: 1.6rem;
+        }
+
         .header p {
             font-size: var(--text-sm);
+            text-align: left;
         }
 
         .header img {
             width: 150px;
             height: 150px;
+        }
+    }
+
+    @media (max-width: 425px) {
+
+        section {
+            padding: 10px 0;
+        }
+
+        .header h2 {
+            font-size: 2.4rem;
+        }
+
+        .header h3 {
+            font-size: 1.4rem;
+        }
+
+        .header p {
+            font-size: var(--text-xs);
+            text-align: left;
+        }
+
+        .header img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .header h2 {
+            font-size: 2rem;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+        }
+
+        .header p {
+            font-size: 0.625rem;
+            text-align: left;
+        }
+
+        .header img {
+            width: 80px;
+            height: 80px;
         }
     }
 </style>
