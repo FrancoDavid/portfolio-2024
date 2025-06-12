@@ -5,7 +5,7 @@ export async function GET() {
             {
                 title: "E-Commerce",
                 description: "",
-                tags: ["/imgs/react-2.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
+                tags: ["/imgs/Next.png", "/imgs/html-1.svg", "/imgs/css-3.svg"],
                 url: "https://github.com/FrancoDavid/nextjs-ecommerce-dark",
                 image: "/imgs/todo-1.png"
             },
@@ -64,14 +64,7 @@ export async function GET() {
                 tags: ["/imgs/angular-icon-1.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
                 url: "https://github.com/FrancoDavid/angular-list-financial-indicators",
                 image: "/imgs/financial-1.png"
-            },
-            {
-                title: "E-Commerce",
-                description: "",
-                tags: ["/imgs/react-2.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
-                url: "https://github.com/FrancoDavid/nextjs-ecommerce-dark",
-                image: "/imgs/todo-1.png"
-            },
+            }
             ],
             back: [{
                 title: "Marketplace API",
@@ -81,11 +74,11 @@ export async function GET() {
                 image: "/imgs/backend-1.jpg"
             },
             {
-                title: "Administrador de Mensaje Api",
+                title: "E-commerce API",
                 description: "",
-                tags: ["/imgs/java.svg", "/imgs/mysql-logo-pure.svg"],
-                url: "https://github.com/FrancoDavid/message-crud-java-se",
-                image: "/imgs/backend-2.jpg"
+                tags: ["/imgs/java.svg", "/imgs/spring-3.svg", "/imgs/mysql-logo-pure.svg"],
+                url: "https://github.com/FrancoDavid/backend-ecommerce-dark",
+                image: "/imgs/backend-3.jpg"
             },
             {
                 title: "Control de plagas API",
@@ -95,12 +88,13 @@ export async function GET() {
                 image: "/imgs/backend-3.jpg"
             },
             {
-                title: "E-commerce API",
+                title: "Administrador de Mensaje Api",
                 description: "",
-                tags: ["/imgs/nodejs-icon.svg", "/imgs/mongodb-icon-1.svg"],
-                url: "https://github.com/FrancoDavid/backend-ecommerce-dark",
-                image: "/imgs/backend-3.jpg"
-            }]
+                tags: ["/imgs/java.svg", "/imgs/mysql-logo-pure.svg"],
+                url: "https://github.com/FrancoDavid/message-crud-java-se",
+                image: "/imgs/backend-2.jpg"
+            }
+            ]
         }),
         { headers: { "Content-Type": "application/json" } }
     )
