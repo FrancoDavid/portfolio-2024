@@ -7,7 +7,7 @@ export async function GET() {
                 description: "",
                 tags: ["/imgs/Next.png", "/imgs/html-1.svg", "/imgs/css-3.svg"],
                 url: "https://github.com/FrancoDavid/nextjs-ecommerce-dark",
-                image: "/imgs/todo-1.png"
+                image: "/imgs/ecommerce.png"
             },
             {
                 title: "To-Do App",
@@ -71,28 +71,28 @@ export async function GET() {
                 description: "",
                 tags: ["/imgs/java.svg", "/imgs/spring-3.svg", "/imgs/mysql-logo-pure.svg"],
                 url: "https://github.com/FrancoDavid/marketplace-spring",
-                image: "/imgs/backend-1.jpg"
+                image: "/imgs/apimarketplace.png"
             },
             {
                 title: "E-commerce API",
                 description: "",
                 tags: ["/imgs/java.svg", "/imgs/spring-3.svg", "/imgs/mysql-logo-pure.svg"],
                 url: "https://github.com/FrancoDavid/backend-ecommerce-dark",
-                image: "/imgs/backend-3.jpg"
+                image: "/imgs/apiecommerce.png"
             },
             {
                 title: "Control de plagas API",
                 description: "",
                 tags: ["/imgs/nodejs-icon.svg", "/imgs/mongodb-icon-1.svg"],
                 url: "https://github.com/FrancoDavid/api-rest-admin-crop",
-                image: "/imgs/backend-3.jpg"
+                image: "/imgs/apicontrolplagas.png"
             },
             {
                 title: "Administrador de Mensaje Api",
                 description: "",
                 tags: ["/imgs/java.svg", "/imgs/mysql-logo-pure.svg"],
                 url: "https://github.com/FrancoDavid/message-crud-java-se",
-                image: "/imgs/backend-2.jpg"
+                image: "/imgs/mensajeria.png"
             }
             ]
         }),
