@@ -7,10 +7,11 @@
 }
 
 .project-card {
-    background-color: var(--black-light);
+    background-color: var(--black-cube);
     border-radius: 5px;
     padding: 20px;
     cursor: pointer;
+    border: 1px solid var(--black-light);
 }
 
 .project-card__header {
