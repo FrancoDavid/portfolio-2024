@@ -1,7 +1,15 @@
 export async function GET() {
     return new Response(
         JSON.stringify({
-            front: [{
+            front: [
+            {
+                title: "E-Commerce",
+                description: "",
+                tags: ["/imgs/react-2.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
+                url: "https://github.com/FrancoDavid/nextjs-ecommerce-dark",
+                image: "/imgs/todo-1.png"
+            },
+            {
                 title: "To-Do App",
                 description: "",
                 tags: ["/imgs/react-2.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
@@ -57,6 +65,13 @@ export async function GET() {
                 url: "https://github.com/FrancoDavid/angular-list-financial-indicators",
                 image: "/imgs/financial-1.png"
             },
+            {
+                title: "E-Commerce",
+                description: "",
+                tags: ["/imgs/react-2.svg", "/imgs/html-1.svg", "/imgs/css-3.svg"],
+                url: "https://github.com/FrancoDavid/nextjs-ecommerce-dark",
+                image: "/imgs/todo-1.png"
+            },
             ],
             back: [{
                 title: "Marketplace API",
@@ -78,7 +93,14 @@ export async function GET() {
                 tags: ["/imgs/nodejs-icon.svg", "/imgs/mongodb-icon-1.svg"],
                 url: "https://github.com/FrancoDavid/api-rest-admin-crop",
                 image: "/imgs/backend-3.jpg"
-            },]
+            },
+            {
+                title: "E-commerce API",
+                description: "",
+                tags: ["/imgs/nodejs-icon.svg", "/imgs/mongodb-icon-1.svg"],
+                url: "https://github.com/FrancoDavid/backend-ecommerce-dark",
+                image: "/imgs/backend-3.jpg"
+            }]
         }),
         { headers: { "Content-Type": "application/json" } }
     )
