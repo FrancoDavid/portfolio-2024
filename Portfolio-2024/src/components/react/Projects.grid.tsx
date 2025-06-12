@@ -75,7 +75,9 @@ const ProjectsGrid = (props: { projects: Array<Array<IProject>>, title: string }
                                             <img key={index} src={tag} />
                                         ))}
                                     </div>
-
+                                    
+                                    {project?.demo && <a href={project?.demo}>DEMO</a>}
+                                
                                     <a href={project?.url} target="_blank">
                                         <img src="/imgs/icons8-github-30.png" alt="Github" />
                                     </a>
