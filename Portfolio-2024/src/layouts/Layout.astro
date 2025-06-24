@@ -1,7 +1,11 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/imgs/logo_size_ico_invert.ico" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/imgs/logo_size_ico_invert.ico"
+        />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>Portafolio-FrancoDavid</title>
@@ -12,6 +16,20 @@
             href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap"
             rel="stylesheet"
         />
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-J6T150CFKW"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-J6T150CFKW");
+        </script>
     </head>
     <body>
         <slot />
@@ -59,7 +77,8 @@
         font-optical-sizing: auto;
         font-style: normal;
     }
-    p, a {
+    p,
+    a {
         font-size: var(--text-sm);
         font-weight: var(--body-font-weight);
         line-height: var(--line-height-base);
