@@ -32,6 +32,22 @@
     object-fit: cover;
     border-radius: 5px;
 }
+
+.project-card__footer a {
+    text-decoration: none;
+    color: var(--white-main);
+    font-size: var(--text-md);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.project-card__footer a:hover {
+    text-decoration: underline;
+    color: var(--grey-secondary);
+    font-size: var(--text-md);
+    font-weight: lighter;
+    cursor: pointer;
+}
 .project-card__base {
     display: flex;
     justify-content: space-around;
@@ -51,6 +67,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+    color: white;
 }
 
 .project-card__footer img {
