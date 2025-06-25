@@ -41,7 +41,7 @@ const gtagScript = `
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-J6T150CFKW"
         ></script>
-        <Fragment set:html={gtagScript} />
+        <Fragment set:html={`<script>${gtagScript}</script>`} /> 
     </head>
     <body>
         <slot />
