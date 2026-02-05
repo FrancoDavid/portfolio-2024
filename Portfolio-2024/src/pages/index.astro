@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 
 import About from "../components/sections/About.astro";
+import Collaborator from "../components/sections/Collaborator.astro";
 import Contact from "../components/sections/Contact.astro";
 import Cover from "../components/sections/Cover.astro";
 import Footer from "../components/sections/Footer.astro";
@@ -10,6 +11,7 @@ import Project from "../components/sections/Project.astro";
 
 import type { IExpirence } from "../interfaces/IExperience";
 import type { IProject } from "../interfaces/IProject";
+import type { ICollaborator } from "../interfaces/ICollaborator";
 
 import "notyf/notyf.min.css";
 
@@ -26,6 +28,8 @@ const projectsResponse = await fetch(`${apiUrl}/api/project`);
 const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
 	await projectsResponse.json();
 
+const collaboratorsResponse = await fetch(`${apiUrl}/api/collaborator`);
+const collaboratorsResult: Array<ICollaborator> = await collaboratorsResponse.json();
 ---
 
 <Layout>
@@ -34,6 +38,7 @@ const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
 		<Cover />
 		<About expirences={expirencesResult || []} />
 		<Project projects={projectsResult || []} />
+		<Collaborator collaborators={collaboratorsResult || []} />
 		<Contact />
 		<Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
 	</landing-page>
