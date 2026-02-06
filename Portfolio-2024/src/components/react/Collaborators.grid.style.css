@@ -1,0 +1,11 @@
+.collaborator-img__container {
+    cursor: pointer;
+}
+
+.collaborator-img__container img {
+    transition: transform 0.3s ease;
+}
+
+.collaborator-img__container:hover img {
+    transform: scale(1.1);
+}
