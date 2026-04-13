@@ -3,381 +3,372 @@ import AccordionUi from "../shared/Accordion.astro";
 import type { IExpirence } from "../../interfaces/IExperience";
 
 interface Props {
-    expirences: Array<IExpirence>;
+  expirences: Array<IExpirence>;
 }
 
 const { expirences } = Astro.props as Props;
 ---
 
 <section id="about">
-    <div class="about-title">
-        <h2 class="hidden">Sobre mi</h2>
-    </div>
-    <div class="about-content">
-        <aside class="expirence">
-            <h3 class="hidden">Experiencia</h3>
-            <div class="hidden">
-                {
-                    expirences &&
-                        expirences?.map((expirence) => (
-                            <AccordionUi title={expirence?.title}>
-                                <div class="expirence-content">
-                                    <ul>
-                                        {expirence &&
-                                            expirence?.descriptions.map(
-                                                (description) => (
-                                                    <li>{description}</li>
-                                                ),
-                                            )}
-                                    </ul>
-                                </div>
-                            </AccordionUi>
-                        ))
-                }
-            </div>
-        </aside>
+  <div class="about-title">
+    <h2 class="hidden">Sobre mi</h2>
+  </div>
+  <div class="about-content">
+    <aside class="expirence">
+      <h3 class="hidden">Experiencia</h3>
+      <div class="hidden">
+        {
+          expirences &&
+            expirences?.map((expirence) => (
+              <AccordionUi title={expirence?.title}>
+                <div class="expirence-content">
+                  <ul>
+                    {expirence &&
+                      expirence?.descriptions.map((description) => (
+                        <li>{description}</li>
+                      ))}
+                  </ul>
+                </div>
+              </AccordionUi>
+            ))
+        }
+      </div>
+    </aside>
 
-        <aside class="skills">
-            <h3 class="hidden">Habilidades</h3>
-            <div class="grid hidden">
-                <div class="skill">
-                    <img
-                        src="/imgs/java.svg"
-                        alt="Java-lenguaje de programación"
-                    />
-                    <span>Java</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/logo-javascript.svg"
-                        alt="Javascript-lenguaje de programación"
-                    />
-                    <span>Javascript</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/typescript.svg"
-                        alt="Typescript-lenguaje de programación"
-                    />
-                    <span>Typescript</span>
-                </div>
-            </div>
-            <div class="grid hidden">
-                <div class="skill">
-                    <img
-                        src="/imgs/spring-3.svg"
-                        alt="Spring-boot-framework de Java"
-                    />
-                    <span>Spring</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/nodejs-icon.svg"
-                        alt="Nodejs-framework de Javascript"
-                    />
-                    <span>Express</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/react-2.svg"
-                        alt="React-framework de Javascript"
-                    />
-                    <span>React</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/angular-icon-1.svg"
-                        alt="Angular-framework de Javascript"
-                    />
-                    <span>Angular</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/Next.svg"
-                        alt="Next-framework de Javascript"
-                    />
-                    <span>Next js</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/astrojs.svg"
-                        alt="Astrojs-framework de Javascript"
-                    />
-                    <span>Astro</span>
-                </div>
-            </div>
-            <div class="grid hidden">
-                <div class="skill">
-                    <img
-                        src="/imgs/mysql-logo-pure.svg"
-                        alt="MySQL-base de datos"
-                    />
-                    <span>MySQL</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/mongodb-icon-1.svg"
-                        alt="MongoDB-base de datos"
-                    />
-                    <span>MongoDB</span>
-                </div>
-                <div class="skill">
-                    <img
-                        src="/imgs/postgresql.svg"
-                        alt="PostgreSQL-base de datos"
-                    />
-                    <span>PostgreSQL</span>
-                </div>
-            </div>
-            <div class="grid hidden">
-                <div class="skill">
-                    <img
-                        src="/imgs/html-1.svg"
-                        alt="HTML-lenguaje de maquetación"
-                    />
-                    <span>HTML</span>
-                </div>
-                <div class="skill">
-                    <img src="/imgs/css-3.svg" alt="CSS-lenguaje de estilos" />
-                    <span>CSS</span>
-                </div>
-            </div>
-        </aside>
-    </div>
+    <aside class="skills">
+      <h3 class="hidden">Habilidades</h3>
+      <div class="grid hidden">
+        <div class="skill">
+          <img src="/imgs/java.svg" alt="Java-lenguaje de programación" />
+          <span>Java</span>
+        </div>
+        <div class="skill">
+          <img
+            src="/imgs/logo-javascript.svg"
+            alt="Javascript-lenguaje de programación"
+          />
+          <span>Javascript</span>
+        </div>
+        <div class="skill">
+          <img
+            src="/imgs/typescript.svg"
+            alt="Typescript-lenguaje de programación"
+          />
+          <span>Typescript</span>
+        </div>
+      </div>
+      <div class="grid hidden">
+        <div class="skill">
+          <img src="/imgs/spring-3.svg" alt="Spring-boot-framework de Java" />
+          <span>Spring</span>
+        </div>
+        <div class="skill">
+          <img
+            src="/imgs/nodejs-icon.svg"
+            alt="Nodejs-framework de Javascript"
+          />
+          <span>Express</span>
+        </div>
+      </div>
+      <div class="grid hidden">
+        <div class="skill">
+          <img src="/imgs/mysql-logo-pure.svg" alt="MySQL-base de datos" />
+          <span>MySQL</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/mongodb-icon-1.svg" alt="MongoDB-base de datos" />
+          <span>MongoDB</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/postgresql.svg" alt="PostgreSQL-base de datos" />
+          <span>PostgreSQL</span>
+        </div>
+      </div>
+      <div class="grid hidden">
+        <div class="skill">
+          <img src="/imgs/html-1.svg" alt="HTML-lenguaje de maquetación" />
+          <span>HTML</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/css-3.svg" alt="CSS-lenguaje de estilos" />
+          <span>CSS</span>
+        </div>
+      </div>
+      <div class="grid hidden">
+        <div class="skill">
+          <img
+            src="/imgs/angular-icon-1.svg"
+            alt="Angular-framework de Javascript"
+          />
+          <span>Angular</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/next-symbol.svg" alt="Next-framework de Javascript" />
+          <span>Next js</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/react-2.svg" alt="React-framework de Javascript" />
+          <span>React</span>
+        </div>
+        <div class="skill">
+          <img src="/imgs/astrojs.svg" alt="Astrojs-framework de Javascript" />
+          <span>Astro</span>
+        </div>
+      </div>
+      <div class="grid hidden">
+        <div class="skill">
+          <img
+            src="/imgs/react-native.png"
+            alt="React-framework de Javascript"
+          />
+          <span>React Native</span>
+        </div>
+      </div>
+    </aside>
+  </div>
 </section>
 
 <style>
-    section {
-        background-color: var(--black-tertiary);
-        color: white;
+  section {
+    background-color: var(--black-tertiary);
+    color: white;
 
-        min-height: 100vh;
-        height: 100%;
+    min-height: 100vh;
+    height: 100%;
 
-        padding: 100px 150px;
+    padding: 100px 150px;
+  }
+
+  .about-title {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 20px 50px;
+
+    margin-bottom: 20px;
+  }
+
+  .about-title h2 {
+    font-weight: 300;
+    font-size: var(--text-xxl);
+    color: var(--white-main);
+    margin-right: 10px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    width: 9ch;
+    transition:
+      opacity 0.5s ease-in-out,
+      visibility 0.5s ease-in-out;
+  }
+
+  .about-title h2.show {
+    opacity: 1;
+    visibility: visible;
+    animation:
+      typing 1s steps(12) forwards,
+      blink 0.5s infinite step-end alternate;
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .about-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin-bottom: 16px;
+    margin-right: 10px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    width: 12ch;
+    transition:
+      opacity 0.5s ease-in-out,
+      visibility 0.5s ease-in-out;
+  }
+
+  .about-content h3.show {
+    opacity: 1;
+    visibility: visible;
+    animation:
+      typing 1s steps(12) forwards,
+      blink 0.5s infinite step-end alternate;
+  }
+
+  .about-card {
+    background-color: var(--black-secondary);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+  }
+
+  .about-collapse__container {
+    border: 1px solid var(--black-secondary);
+    background-color: var(--black-tertiary);
+    padding: 12px;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .about-card p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .about-card h3 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .about-logo__container-3 {
+    display: flex;
+    justify-content: space-around;
+    margin: 16px 0;
+  }
+
+  .expirence {
+    margin-bottom: 60px;
+  }
+
+  .expirence-content ul {
+    padding: 10px 20px;
+    text-align: justify;
+    font-size: var(--text-sm);
+    line-height: 20px;
+    color: var(--grey-main);
+  }
+
+  .expirence-content li {
+    margin-bottom: 10px;
+  }
+
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SKILLS */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .skill {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .skill:hover {
+    transform: scale(1.1);
+  }
+
+  .skill img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  .skill h3 {
+    margin-right: 10px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    width: 12ch;
+    transition:
+      opacity 0.5s ease-in-out,
+      visibility 0.5s ease-in-out;
+  }
+
+  .skill h3.show {
+    opacity: 1;
+    visibility: visible;
+    animation:
+      typing 1s steps(12) forwards,
+      blink 0.5s infinite step-end alternate;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
     }
+  }
 
-    .about-title {
-        display: flex;
-        justify-content: flex-end;
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
+  @media (max-width: 1200px) {
+    section {
+      padding: 90px 120px;
+    }
+  }
 
-        padding: 20px 50px;
-
-        margin-bottom: 20px;
+  @media (max-width: 992px) {
+    section {
+      padding: 90px 90px;
     }
 
     .about-title h2 {
-        font-weight: 300;
-        font-size: var(--text-xxl);
-        color: var(--white-main);
-        margin-right: 10px;
-        white-space: nowrap;
-        border-right: 4px solid;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        width: 9ch;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    }
-
-    .about-title h2.show {
-        opacity: 1;
-        visibility: visible;
-        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
-    }
-
-    .about-content {
-        max-width: 800px;
-        margin: auto;
+      font-size: var(--text-xl);
     }
 
     .about-content h3 {
-        font-size: var(--text-xl);
-        font-weight: 400;
-        margin-bottom: 16px;
-        margin-right: 10px;
-        white-space: nowrap;
-        border-right: 4px solid;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        width: 12ch;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      font-size: var(--text-lg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 60px 50px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section {
+      padding: 40px 20px;
     }
 
-    .about-content h3.show {
-        opacity: 1;
-        visibility: visible;
-        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
+    .about-title h2 {
+      font-size: var(--text-lg);
     }
 
-    .about-card {
-        background-color: var(--black-secondary);
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        text-align: left;
-    }
-
-    .about-collapse__container {
-        border: 1px solid var(--black-secondary);
-        background-color: var(--black-tertiary);
-        padding: 12px;
-        margin-bottom: 8px;
-        font-size: 16px;
-    }
-
-    .about-card p {
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
-    .about-card h3 {
-        font-size: 20px;
-        margin-bottom: 24px;
-    }
-
-    .about-logo__container-3 {
-        display: flex;
-        justify-content: space-around;
-        margin: 16px 0;
-    }
-
-    .expirence {
-        margin-bottom: 60px;
+    .about-content h3 {
+      font-size: var(--text-md);
     }
 
     .expirence-content ul {
-        padding: 10px 20px;
-        text-align: justify;
-        font-size: var(--text-sm);
-        line-height: 20px;
-        color: var(--grey-main);
+      font-size: var(--text-xs);
     }
-
-    .expirence-content li {
-        margin-bottom: 10px;
-    }
-
-    .hidden {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(50px);
-        transition: all 0.5s ease-in-out;
-    }
-
-    .show {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* SKILLS */
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .skill {
-        background: #1e1e1e;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-        transition: transform 0.3s;
-    }
-
-    .skill:hover {
-        transform: scale(1.1);
-    }
-
-    .skill img {
-        width: 50px;
-        height: 50px;
-    }
-
-    .skill span {
-        display: block;
-        margin-top: 10px;
-        font-size: 1rem;
-        color: #ccc;
-    }
-
-    .skill h3 {
-        margin-right: 10px;
-        white-space: nowrap;
-        border-right: 4px solid;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        width: 12ch;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    }
-
-    .skill h3.show {
-        opacity: 1;
-        visibility: visible;
-        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
-    }
-
-
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-    }
-
-    @keyframes blink {
-        50% {
-            border-color: transparent;
-        }
-        100% {
-            border-color: transparent;
-        }
-    }
-    @media (max-width: 1200px) {
-        section {
-            padding: 90px 120px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        section {
-            padding: 90px 90px;
-        }
-
-        .about-title h2 {
-            font-size: var(--text-xl);
-        }
-
-        .about-content h3 {
-            font-size: var(--text-lg);
-        }
-
-        
-    }
-
-    @media (max-width: 768px) {
-        section {
-            padding: 60px 50px;
-        }
-    }
-
-    @media (max-width: 576px) {
-        section {
-            padding: 40px 20px;
-        }
-
-        .about-title h2 {
-            font-size: var(--text-lg);
-        }
-
-        .about-content h3 {
-            font-size: var(--text-md);
-        }
-
-        .expirence-content ul {
-            font-size: var(--text-xs);
-        }
-    }
+  }
 </style>
