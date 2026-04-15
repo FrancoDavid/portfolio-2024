@@ -18,55 +18,62 @@ import "notyf/notyf.min.css";
 //  const apiUrl = 'http://localhost:4321';
 const apiUrl = "https://portfolio.darkdevs.win/";
 
-const gitHubUrl = 'https://github.com/FrancoDavid'
-const linkedinUrl = 'https://www.linkedin.com/in/franco-david-aguirre-avalos-0173b1140'
+const gitHubUrl = "https://github.com/FrancoDavid";
+const linkedinUrl =
+  "https://www.linkedin.com/in/franco-david-aguirre-avalos-0173b1140";
 
 const expirencesResponse = await fetch(`${apiUrl}/api/expirence`);
 const expirencesResult: Array<IExpirence> = await expirencesResponse.json();
 
-const projectsResponse = await fetch(`${apiUrl}/api/project`);
-const projectsResult: { front: Array<IProject>; back: Array<IProject> } =
-	await projectsResponse.json();
+const projectsResponse = await fetch(`${apiUrl}/api/project?type=all`);
+const projectsResult: Array<IProject> = await projectsResponse.json();
 
 const collaboratorsResponse = await fetch(`${apiUrl}/api/collaborator`);
-const collaboratorsResult: Array<ICollaborator> = await collaboratorsResponse.json();
+const collaboratorsResult: Array<ICollaborator> =
+  await collaboratorsResponse.json();
 ---
 
 <Layout>
-	<landing-page>
-		<Nav />
-		<Cover />
-		<About expirences={expirencesResult || []} />
-		<Project projects={projectsResult || []} />
-		<Collaborator collaborators={collaboratorsResult || []} />
-		<Contact />
-		<Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
-	</landing-page>
+  <landing-page>
+    <Nav />
+    <Cover />
+    <About expirences={expirencesResult || []} />
+    <Project projects={projectsResult || []} />
+    <Collaborator collaborators={collaboratorsResult || []} />
+    <Contact />
+    <Footer gitHub={gitHubUrl || ""} linkedin={linkedinUrl || ""} />
+  </landing-page>
 </Layout>
 
 <script>
-	class LandingPage extends HTMLElement {
-		elementsHidden: NodeList;
-		observerScroll: IntersectionObserver;
+  class LandingPage extends HTMLElement {
+    elementsHidden: NodeList;
+    observerScroll: IntersectionObserver;
 
-		constructor() {
-			super();
+    constructor() {
+      super();
 
-			this.elementsHidden = this.querySelectorAll(".hidden");
-			this.observerScroll =  new IntersectionObserver(this.callbackIntersection, { threshold: 0.2 })
-			
-			this.handleAnimationScroll();
-		}
+      this.elementsHidden = this.querySelectorAll(".hidden");
+      this.observerScroll = new IntersectionObserver(
+        this.callbackIntersection,
+        { threshold: 0.2 },
+      );
 
-		callbackIntersection(intersections: IntersectionObserverEntry[]) {
-			intersections.forEach(intersection => {
-				intersection.isIntersecting && intersection.target.classList.add('show');
-			});
-		}
+      this.handleAnimationScroll();
+    }
 
-		handleAnimationScroll() {
-			this.elementsHidden.forEach(((element) =>this.observerScroll.observe(element as Element)))
-		}
-	}
-	customElements.define("landing-page", LandingPage);
+    callbackIntersection(intersections: IntersectionObserverEntry[]) {
+      intersections.forEach((intersection) => {
+        intersection.isIntersecting &&
+          intersection.target.classList.add("show");
+      });
+    }
+
+    handleAnimationScroll() {
+      this.elementsHidden.forEach((element) =>
+        this.observerScroll.observe(element as Element),
+      );
+    }
+  }
+  customElements.define("landing-page", LandingPage);
 </script>
