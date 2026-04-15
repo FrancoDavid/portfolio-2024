@@ -1,0 +1,30 @@
+.project-list__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+}
+
+.project-list__content a {
+    color: blue;
+    font-size: 20px;
+}
+
+.project-list__content a:hover {
+    color: white;
+    font-size: 20px;
+}
+
+.project-list__title {
+    font-size: 22px;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.project-list__description {
+    font-size: 18px;
+    font-weight: 200;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -1,152 +1,150 @@
 ---
 import type { IProject } from "../../interfaces/IProject";
+
 import ProjectsGrid from "../react/Projects.grid";
+import ProjectsList from "../react/Projects.list";
 
 interface Props {
-    projects: { front: Array<IProject>; back: Array<IProject> };
+  projects: Array<IProject>;
 }
 
 const { projects } = Astro.props as Props;
-
-const createMultiGrid = (projects: Array<IProject>, perPage: number) => {
-    const grids = [];
-
-    for (let i = 0; i < projects.length; i += perPage) {
-        grids.push(projects.slice(i, i + perPage));
-    }
-    return grids;
-};
-
-const frontProjects = createMultiGrid(projects?.front, 3);
-const backProjects = createMultiGrid(projects?.back, 3);
-
 ---
 
 <section id="portfolio">
-    <div class="project-title">
-        <h2 class="hidden">Portafolio</h2>
-    </div>
+  <div class="project-title">
+    <h2 class="hidden">Portafolio</h2>
+  </div>
 
-    <div class="project-body">
-        <ProjectsGrid
-            client:load
-            projects={frontProjects || []}
-            title="Front-end"
-        />
-        <ProjectsGrid client:load projects={backProjects || []} title="Back-end"/>
-    </div>
+  <div class="project-body">
+    <ProjectsList client:load projects={projects || []} />
+  </div>
 </section>
 
 <style>
-    section {
-        background-color: var(--black-tertiary);
-        color: white;
+  section {
+    background-color: var(--black-tertiary);
+    color: white;
 
-        min-height: 100vh;
-        height: 100%;
+    min-height: 100vh;
+    height: 100%;
 
-        padding: 100px;
+    padding: 100px;
+  }
+
+  .project-title {
+    display: flex;
+    justify-content: flex-start;
+
+    padding: 20px 50px;
+
+    margin-bottom: 20px;
+  }
+
+  .project-title h2 {
+    font-weight: 300;
+    font-size: var(--text-xxl);
+    color: var(--white-main);
+    margin-right: 10px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    width: 11ch;
+    transition:
+      opacity 0.5s ease-in-out,
+      visibility 0.5s ease-in-out;
+  }
+
+  .project-title h2.show {
+    opacity: 1;
+    visibility: visible;
+    animation:
+      typing 1s steps(12) forwards,
+      blink 0.5s infinite step-end alternate;
+  }
+
+  .project-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+  }
+
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
     }
+  }
 
-    .project-title {
-        display: flex;
-        justify-content: flex-start;
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: transparent;
+    }
+  }
 
-        padding: 20px 50px;
+  @media (max-width: 1444px) {
+    section {
+      padding: 100px 80px;
+    }
+    .project-body {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+  }
 
-        margin-bottom: 20px;
+  @media (max-width: 1024px) {
+    section {
+      padding: 100px 80px;
     }
 
     .project-title h2 {
-        font-weight: 300;
-        font-size: var(--text-xxl);
-        color: var(--white-main);
-        margin-right: 10px;
-        white-space: nowrap;
-        border-right: 4px solid;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        width: 11ch;
-        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      font-size: var(--text-xl);
     }
-
-    .project-title h2.show {
-        opacity: 1;
-        visibility: visible;
-        animation: typing 1s steps(12) forwards, blink 0.5s infinite step-end alternate;
-    }
-
     .project-body {
-        padding: 20px;
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+  }
+  @media (max-width: 768px) {
+    section {
+      padding: 50px 30px;
+    }
+    .project-body {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    section {
+      padding: 40px 20px;
     }
 
-    .project-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 5px;
+    .project-title h2 {
+      font-size: var(--text-lg);
     }
-
-
-    .hidden {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(50px);
-        transition: all 0.5s ease-in-out;
-    }
-
-    .show {
-        visibility: visible;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-    }
-
-    @keyframes blink {
-        50% {
-            border-color: transparent;
-        }
-        100% {
-            border-color: transparent;
-        }
-    }
-
-    @media (max-width: 1444px) {
-        section {
-            padding: 100px 80px;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        section {
-            padding: 100px 80px;
-        }
-
-        .project-title h2 {
-            font-size: var(--text-xl);
-        }
-    }
-    @media (max-width: 768px) {
-        section {
-            padding: 50px 30px;
-        }
-        .project-body {
-            padding: 0
-        }
-    }
-
-    @media (max-width: 576px) {
-        section {
-            padding: 40px 20px;
-        }
-
-        .project-title h2 {
-            font-size: var(--text-lg);
-        }
-    }
+  }
 </style>
